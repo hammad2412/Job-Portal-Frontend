@@ -4,8 +4,12 @@ import RoleRoute from "./RoleRoute";
 
 // Public Pages
 import Home from "../pages/public/Home";
-import Login from "../pages/public/Login";
-import Register from "../pages/public/Register";
+
+//Auth Pages
+import CandidateLogin from "../pages/auth/candidate/CandidateLogin";
+import CandidateRegister from "../pages/auth/candidate/CandidateRegister";
+import RecruiterLogin from "../pages/auth/recruiter/RecruiterLogin";
+import RecruiterRegister from "../pages/auth/recruiter/RecruiterRegister";
 
 // Candidate Pages
 import CandidateDashboard from "../pages/candidate/CandidateDashboard";
@@ -21,8 +25,13 @@ const AppRoutes = () => {
     <Routes>
       {/* Public Routes */}
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+
+      {/* Auth Routes */}
+      <Route path="/login/candidate" element={<CandidateLogin />} />
+      <Route path="/register/candidate" element={<CandidateRegister />} />
+
+      <Route path="/login/recruiter" element={<RecruiterLogin />} />
+      <Route path="/register/recruiter" element={<RecruiterRegister />} />
 
       {/* Candidate Routes */}
       <Route

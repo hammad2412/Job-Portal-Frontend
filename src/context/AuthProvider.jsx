@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
     setLocalAccessToken(null);
     setUser(null);
 
-    navigate("/login");
+    navigate("/");
   };
 
   if (loading) return <div>Loading...</div>;

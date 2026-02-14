@@ -1,91 +1,80 @@
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/useAuth";
+import "./Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
-  // const { user } = useAuth();
+  const { user } = useAuth();
 
-  // useEffect(() => {
-  //   if (user) {
-  //     if (user.role === "candidate") {
-  //       navigate("/candidate/dashboard");
-  //     } else {
-  //       navigate("/recruiter/dashboard");
-  //     }
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if (user) {
+      if (user.role === "candidate") {
+        navigate("/candidate/dashboard");
+      } else {
+        navigate("/recruiter/dashboard");
+      }
+    }
+  }, [user, navigate]);
 
   return (
-    <div style={styles.container}>
-      <div style={styles.hero}>
-        <h1 style={styles.title}>Welcome to JobPortal</h1>
-        <p style={styles.subtitle}>
-          Find your dream job or hire the best talent.
-        </p>
+    <div className="home-page">
+      {/* Navigation */}
+      <nav className="home-nav">
+        <div className="home-logo">JobPortal</div>
 
-        <div style={styles.buttonGroup}>
-          <button style={styles.primaryBtn} onClick={() => navigate("/login")}>
-            Login
+        <div className="nav-buttons">
+          <button
+            className="btn-outline"
+            onClick={() => navigate("/login/candidate")}
+          >
+            Candidate Login
           </button>
 
           <button
-            style={styles.secondaryBtn}
-            onClick={() => navigate("/register")}
+            className="btn-primary"
+            onClick={() => navigate("/login/recruiter")}
           >
-            Register
+            Recruiter Login
           </button>
         </div>
-      </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="hero-section">
+        {/* Abstract Elements */}
+        <div className="abstract-shape shape-one"></div>
+        <div className="abstract-shape shape-two"></div>
+
+        <div className="hero-content">
+          <h1 className="hero-heading">
+            A modern platform connecting companies with top talent.
+          </h1>
+
+          <p className="hero-subtext">
+            Designed for professionals and organizations who value clarity,
+            efficiency, and meaningful opportunities.
+          </p>
+
+          <div className="hero-cta">
+            <button
+              className="btn-primary large"
+              onClick={() => navigate("/login/candidate")}
+            >
+              Explore Opportunities
+            </button>
+
+            <button
+              className="btn-outline large"
+              onClick={() => navigate("/login/recruiter")}
+            >
+              Post a Position
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    background: "linear-gradient(135deg, #4f46e5, #9333ea)",
-    color: "white",
-    textAlign: "center",
-  },
-  hero: {
-    maxWidth: "500px",
-  },
-  title: {
-    fontSize: "40px",
-    marginBottom: "20px",
-  },
-  subtitle: {
-    fontSize: "18px",
-    marginBottom: "30px",
-    opacity: 0.9,
-  },
-  buttonGroup: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "20px",
-  },
-  primaryBtn: {
-    padding: "12px 25px",
-    borderRadius: "6px",
-    border: "none",
-    backgroundColor: "white",
-    color: "#4f46e5",
-    fontWeight: "bold",
-    cursor: "pointer",
-  },
-  secondaryBtn: {
-    padding: "12px 25px",
-    borderRadius: "6px",
-    border: "2px solid white",
-    backgroundColor: "transparent",
-    color: "white",
-    fontWeight: "bold",
-    cursor: "pointer",
-  },
 };
 
 export default Home;
