@@ -2,6 +2,15 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import "./Home.css";
+import HeroSection from "../../components/home/HeroSection";
+import ConnectSection from "../../components/home/ConnectSection";
+import AchievementSection from "../../components/home/AchievementSection";
+import How from "../../components/home/How";
+import Benefits from "../../components/home/Benefits";
+import ReviewSection from "../../components/home/ReviewSection";
+import JobFilterBar from "../../components/home/JobFilterBar";
+import Footer from "../../components/home/Footer";
+import Navbar from "../../components/home/Navbar";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,60 +28,15 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Navigation */}
-      <nav className="home-nav">
-        <div className="home-logo">JobPortal</div>
-
-        <div className="nav-buttons">
-          <button
-            className="btn-outline"
-            onClick={() => navigate("/login/candidate")}
-          >
-            Candidate Login
-          </button>
-
-          <button
-            className="btn-primary"
-            onClick={() => navigate("/login/recruiter")}
-          >
-            Recruiter Login
-          </button>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="hero-section">
-        {/* Abstract Elements */}
-        <div className="abstract-shape shape-one"></div>
-        <div className="abstract-shape shape-two"></div>
-
-        <div className="hero-content">
-          <h1 className="hero-heading">
-            A modern platform connecting companies with top talent.
-          </h1>
-
-          <p className="hero-subtext">
-            Designed for professionals and organizations who value clarity,
-            efficiency, and meaningful opportunities.
-          </p>
-
-          <div className="hero-cta">
-            <button
-              className="btn-primary large"
-              onClick={() => navigate("/login/candidate")}
-            >
-              Explore Opportunities
-            </button>
-
-            <button
-              className="btn-outline large"
-              onClick={() => navigate("/login/recruiter")}
-            >
-              Post a Position
-            </button>
-          </div>
-        </div>
-      </section>
+      <Navbar />
+      <HeroSection />
+      <ConnectSection />
+      <How />
+      <Benefits />
+      <AchievementSection />
+      <ReviewSection />
+      <JobFilterBar />
+      <Footer />
     </div>
   );
 };

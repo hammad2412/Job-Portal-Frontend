@@ -1,0 +1,99 @@
+.how {
+  padding: 50px 20px;
+  background-color: #f3f4e5;
+  text-align: center;
+}
+
+.how-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.how-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 70px;
+}
+
+.how-block {
+  margin-bottom: 100px;
+}
+
+.how-subtitle {
+  font-size: 1.5rem;
+  font-weight: 550;
+  color: #2563eb;
+  margin-bottom: 40px;
+}
+.how-subtitle-r {
+  font-size: 1.5rem;
+  font-weight: 550;
+  color: #059669;
+  margin-bottom: 40px;
+}
+
+.how-steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.how-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 120px;
+}
+
+.how-step .icon {
+  font-size: 2.5rem;
+}
+
+.how-step p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.how-btn {
+  padding: 14px 32px;
+  border-radius: 25px;
+  border: none;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.how-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.how-btn-r {
+  padding: 14px 32px;
+  border-radius: 25px;
+  border: none;
+  background-color: #059669;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.how-btn-r:hover {
+  background-color: #027450;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .how-steps {
+    gap: 30px;
+  }
+}

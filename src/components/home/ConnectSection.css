@@ -1,0 +1,90 @@
+.connect {
+  padding: 60px 40px;
+  background: #f3f4e5;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.connect-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* ================= TEXT ================= */
+
+.connect-text {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.connect-title {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #111827;
+}
+
+.connect-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+/* ================= IMAGES ================= */
+
+.connect-images {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.connect-image-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+  text-align: center;
+}
+
+.connect-image-card img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* Label */
+
+.image-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #374151;
+}
+
+/* Highlight “after” image */
+
+.connect-image-card.highlight .image-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .connect-title {
+    font-size: 2rem;
+  }
+
+  .connect-images {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,100 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f3f4e5;
+  padding: 18px 40px;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.navbar-container {
+  /* max-width: 1300px; */
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+
+.navbar-logo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+}
+
+/* Center Links */
+
+.navbar-links {
+  display: flex;
+  gap: 40px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #2563eb;
+}
+
+/* Right Buttons */
+
+.navbar-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+/* Buttons */
+
+.btn-primary {
+  padding: 10px 18px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid #059669;
+  color: #059669;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #059669;
+}
+
+.btn-outline {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid #2563eb;
+  background: transparent;
+  color: #2563eb;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .navbar-links {
+    display: none;
+  }
+}

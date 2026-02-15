@@ -1,0 +1,114 @@
+.review-section {
+  padding: 100px 40px;
+  background: #f8fbff;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.review-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.review-title {
+  text-align: center;
+  font-size: 2.8rem;
+  letter-spacing: -1px;
+  font-weight: 600;
+  margin-bottom: 80px;
+  color: #111827;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Card */
+
+.review-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 240px;
+}
+
+/* Company Name */
+
+.company-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Different font style per company */
+
+.company-0 {
+  font-family: "Segoe UI", sans-serif;
+}
+.company-1 {
+  font-family: "Trebuchet MS", sans-serif;
+}
+.company-2 {
+  font-family: "Verdana", sans-serif;
+}
+.company-3 {
+  font-family: "Georgia", serif;
+}
+.company-4 {
+  font-family: "Courier New", monospace;
+}
+.company-5 {
+  font-family: "Tahoma", sans-serif;
+}
+.company-6 {
+  font-family: "Arial Black", sans-serif;
+}
+.company-7 {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+/* Review Text */
+
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+/* Meta */
+
+.review-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.review-role {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 4px 0 0 0;
+}
+
+/* Responsive */
+
+@media (max-width: 1200px) {
+  .review-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
