@@ -42,7 +42,7 @@ const How = () => {
 
           <button
             className="how-btn"
-            onClick={() => navigate("/login/candidate")}
+            onClick={() => navigate("/auth/candidate")}
           >
             Start as Candidate
           </button>
@@ -81,7 +81,7 @@ const How = () => {
 
           <button
             className="how-btn-r"
-            onClick={() => navigate("/login/recruiter")}
+            onClick={() => navigate("/auth/recruiter")}
           >
             Start Hiring
           </button>

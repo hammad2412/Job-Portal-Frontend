@@ -73,14 +73,14 @@
   margin-bottom: 16px;
 }
 
-.auth-footer {
+.auth-footer-l {
   margin-top: 20px;
   font-size: 0.9rem;
   color: #6b7280;
   text-align: center;
 }
 
-.auth-footer span {
+.auth-footer-l span {
   color: #2563eb;
   cursor: pointer;
   font-weight: 500;

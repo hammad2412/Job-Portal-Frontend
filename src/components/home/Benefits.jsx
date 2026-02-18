@@ -10,7 +10,7 @@ const Benefits = () => {
         {/* Candidate Card */}
         <div
           className="benefit-large candidate"
-          onClick={() => navigate("/register/candidate")}
+          onClick={() => navigate("/auth/candidate")}
         >
           <p className="benefit-tag">Got Talent?</p>
           <h2>Build a career with clarity</h2>
@@ -29,7 +29,7 @@ const Benefits = () => {
         {/* Recruiter Card */}
         <div
           className="benefit-large recruiter"
-          onClick={() => navigate("/register/recruiter")}
+          onClick={() => navigate("/auth/recruiter")}
         >
           <p className="benefit-tag">Need Talent?</p>
           <h2>Hire with precision</h2>

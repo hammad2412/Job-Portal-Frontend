@@ -5,7 +5,7 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="footer">
+    <div className="footer">
       <div className="footer-container">
         {/* Brand Column */}
         <div className="footer-column">
@@ -20,8 +20,8 @@ const Footer = () => {
         <div className="footer-column">
           <h4>Candidates</h4>
           <ul>
-            <li onClick={() => navigate("/login/candidate")}>Login</li>
-            <li onClick={() => navigate("/register/candidate")}>Register</li>
+            <li onClick={() => navigate("/auth/candidate")}>Login</li>
+            <li onClick={() => navigate("/auth/candidate")}>Register</li>
             <li>Browse Jobs</li>
             <li>Career Resources</li>
           </ul>
@@ -31,8 +31,8 @@ const Footer = () => {
         <div className="footer-column">
           <h4>Recruiters</h4>
           <ul>
-            <li onClick={() => navigate("/login/recruiter")}>Login</li>
-            <li onClick={() => navigate("/register/recruiter")}>Register</li>
+            <li onClick={() => navigate("/auth/recruiter")}>Login</li>
+            <li onClick={() => navigate("/auth/recruiter")}>Register</li>
             <li>Post a Job</li>
             <li>Hiring Solutions</li>
           </ul>
@@ -53,7 +53,7 @@ const Footer = () => {
       <div className="footer-bottom">
         © {new Date().getFullYear()} JobPortal. All rights reserved.
       </div>
-    </footer>
+    </div>
   );
 };
 

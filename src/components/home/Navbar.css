@@ -23,6 +23,7 @@
 /* Logo */
 
 .navbar-logo {
+  padding: 0 55px;
   font-size: 1.4rem;
   font-weight: 600;
   color: #111827;

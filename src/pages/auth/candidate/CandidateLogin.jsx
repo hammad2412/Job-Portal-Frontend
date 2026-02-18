@@ -77,7 +77,7 @@ const CandidateLogin = () => {
           </button>
         </form>
 
-        <p className="auth-footer">
+        <p className="auth-footer-l">
           Dont have an account?{" "}
           <span onClick={() => navigate("/register/candidate")}>Register</span>
         </p>

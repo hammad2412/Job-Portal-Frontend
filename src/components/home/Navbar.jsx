@@ -23,14 +23,14 @@ const Navbar = () => {
         <div className="navbar-buttons">
           <button
             className="btn-outline"
-            onClick={() => navigate("/login/candidate")}
+            onClick={() => navigate("/auth/candidate")}
           >
             Candidate Login
           </button>
 
           <button
             className="btn-primary"
-            onClick={() => navigate("/login/recruiter")}
+            onClick={() => navigate("/auth/recruiter")}
           >
             Recruiter Login
           </button>

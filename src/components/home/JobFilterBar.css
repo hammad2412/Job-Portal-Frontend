@@ -1,5 +1,5 @@
 .job-filter-section {
-  padding: 50px 40px;
+  padding: 30px 40px;
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
 }
 
@@ -35,7 +35,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   background: transparent;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 0px;
   font-weight: 500;
   cursor: pointer;

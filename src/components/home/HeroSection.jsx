@@ -20,14 +20,14 @@ const HeroSection = () => {
           {" "}
           <button
             className="hero-btn"
-            onClick={() => navigate("/register/candidate")}
+            onClick={() => navigate("/auth/candidate")}
           >
             {" "}
             Explore Opportunities{" "}
           </button>{" "}
           <button
             className="hero-btn"
-            onClick={() => navigate("/register/recruiter")}
+            onClick={() => navigate("/auth/recruiter")}
           >
             {" "}
             Post a Position{" "}
