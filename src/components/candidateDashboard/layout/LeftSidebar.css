@@ -1,0 +1,51 @@
+/* ===== Sidebar Container ===== */
+
+.candidate-sidebar {
+  width: 170px;
+  background: transparent;
+
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+/* ===== Navigation ===== */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* ===== Sidebar Item ===== */
+
+.sidebar-item {
+  text-decoration: none;
+  color: #94a3b8;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.sidebar-item small {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.sidebar-item:hover {
+  color: white;
+}
+
+/* ===== Active Route ===== */
+
+.sidebar-item.active {
+  color: #059669;
+}

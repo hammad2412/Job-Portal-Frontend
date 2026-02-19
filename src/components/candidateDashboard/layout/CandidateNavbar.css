@@ -1,0 +1,121 @@
+/* ===== Navbar Container ===== */
+
+.candidate-navbar {
+  height: 70px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-right: 2rem;
+  padding-left: 1rem;
+  position: relative;
+  z-index: 15;
+}
+
+/* ===== Left ===== */
+
+.navbar-logo {
+  padding: 0;
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* ===== Center ===== */
+
+.navbar-center {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-link {
+  position: relative;
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  padding-bottom: 6px;
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #1d4ed8;
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.active-link::after {
+  width: 100%;
+}
+
+/* ===== Right ===== */
+
+.profile-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  background: #059669;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* ===== Dropdown ===== */
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 150px;
+  padding: 10px 0;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.profile-dropdown a,
+.profile-dropdown button {
+  padding: 10px 20px;
+  text-align: left;
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: #334155;
+  cursor: pointer;
+}
+
+.profile-dropdown a:hover,
+.profile-dropdown button:hover {
+  background: #f1f5f9;
+}
+
+/* ===== Logout Button ===== */
+
+.logout-btn {
+  color: #dc2626;
+}

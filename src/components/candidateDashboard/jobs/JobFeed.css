@@ -1,0 +1,9 @@
+.job-feed {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}

@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-.auth-candidate-page * {
+.auth-recruiter-page * {
   color: #ffffff;
+  font-family: "Poppins", sans-serif;
 }
+
+/* ================= PAGE LAYOUT ================= */
 
 .auth-recruiter-page {
   min-height: 100vh;
@@ -13,7 +16,7 @@
   background: linear-gradient(45deg, #96ffde, #c0ffeb);
 }
 
-/* BACKGROUND LAYER */
+/* LEFT SIDE IMAGE */
 .auth-recruiter-page-left {
   min-height: 100vh;
   flex: 0.5;
@@ -50,9 +53,10 @@
   overflow: hidden;
   position: relative;
 }
+
 /* ================= WRAPPER ================= */
 
-.auth-wrapper {
+.auth-rec-wrapper {
   position: relative;
   width: 800px;
   max-width: 850px;
@@ -66,7 +70,7 @@
 
 /* ================= PANELS ================= */
 
-.credentials-panel {
+.auth-rec-credentials-panel {
   width: 50%;
   height: 100%;
   padding: 0 50px;
@@ -76,44 +80,44 @@
   transition: 0.8s ease;
 }
 
-.credentials-panel.signin {
+.auth-rec-credentials-panel.signin {
   transform: translateX(0);
 }
 
-.credentials-panel.signup {
+.auth-rec-credentials-panel.signup {
   transform: translateX(100%);
   position: absolute;
   right: 0;
 }
 
-.auth-wrapper.toggled .credentials-panel.signin {
+.auth-rec-wrapper.toggled .auth-rec-credentials-panel.signin {
   transform: translateX(-100%);
 }
 
-.auth-wrapper.toggled .credentials-panel.signup {
+.auth-rec-wrapper.toggled .auth-rec-credentials-panel.signup {
   transform: translateX(0);
 }
 
 /* ================= TEXT ANIMATION ================= */
 
-.slide-element {
+.auth-rec-slide-element {
   transition: 0.6s ease;
   opacity: 1;
 }
 
-.auth-wrapper.toggled .signin .slide-element {
+.auth-rec-wrapper.toggled .signin .auth-rec-slide-element {
   opacity: 0;
   transform: translateX(-40px);
 }
 
-.auth-wrapper.toggled .signup .slide-element {
+.auth-rec-wrapper.toggled .signup .auth-rec-slide-element {
   opacity: 1;
   transform: translateX(0);
 }
 
 /* ================= WELCOME SECTION ================= */
 
-.welcome-section {
+.auth-rec-welcome-section {
   position: absolute;
   top: 0;
   width: 50%;
@@ -127,44 +131,50 @@
   transition: 0.8s ease;
 }
 
-.welcome-section.signin {
+.auth-rec-welcome-section.signin {
   right: 0;
 }
-.welcome-section.signup h2 {
-  color: #c6d8ff;
-}
 
-.welcome-section.signin h2 {
-  color: #059669;
-}
-
-.welcome-section.signup {
+.auth-rec-welcome-section.signup {
   left: 0;
   transform: translateX(-100%);
 }
 
-.auth-wrapper.toggled .welcome-section.signin {
+.auth-rec-wrapper.toggled .auth-rec-welcome-section.signin {
   transform: translateX(100%);
 }
 
-.auth-wrapper.toggled .welcome-section.signup {
+.auth-rec-wrapper.toggled .auth-rec-welcome-section.signup {
   transform: translateX(0);
+}
+
+.auth-rec-welcome-section.signin h2 {
+  color: #059669;
+}
+
+.auth-rec-welcome-section.signup h2 {
+  color: #c6d8ff;
 }
 
 /* ================= FORM ELEMENTS ================= */
 
-.credentials-panel h2 {
+.auth-rec-credentials-panel h2 {
   font-size: 30px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-.field-wrapper {
+.auth-rec-credentials-panel.signup h2 {
+  color: #059669;
+}
+
+/* LOGIN FIELD */
+.auth-rec-field-wrapper {
   position: relative;
   margin-top: 25px;
 }
 
-.field-wrapper input {
+.auth-rec-field-wrapper input {
   width: 100%;
   padding: 10px 30px 10px 0;
   background: transparent;
@@ -173,54 +183,42 @@
   outline: none;
   font-weight: 500;
   transition: 0.3s;
+  color: #ffffff;
 }
 
-.field-wrapper label {
+.auth-rec-field-wrapper label {
   position: absolute;
   left: 0;
   top: 10px;
   transition: 0.3s;
+  color: #ffffff;
 }
 
-.field-wrapper input:focus ~ label,
-.field-wrapper input:valid ~ label {
+.auth-rec-field-wrapper input:focus ~ label,
+.auth-rec-field-wrapper input:valid ~ label {
   top: -10px;
   font-size: 12px;
 }
 
-.field-wrapper i {
-  position: absolute;
-  right: 0;
-  top: 10px;
-}
-
-/*=========form element for R ===============*/
-.credentials-panel.signup h2 {
-  color: #059669;
-}
-
-.field-wrapper-r {
+/* REGISTER FIELD */
+.auth-rec-field-wrapper-r {
   position: relative;
   margin-top: 25px;
 }
 
-.field-wrapper-r input {
+.auth-rec-field-wrapper-r input {
   width: 100%;
   padding: 10px 30px 10px 0;
   background: transparent;
   border: none;
-  color: #059669;
   border-bottom: 2px solid #059669;
   outline: none;
   font-weight: 500;
   transition: 0.3s;
+  color: #059669;
 }
 
-.field-wrapper-r input:focus {
-  border-bottom: 2px solid #059669;
-}
-
-.field-wrapper-r label {
+.auth-rec-field-wrapper-r label {
   color: #059669;
   position: absolute;
   left: 0;
@@ -228,26 +226,16 @@
   transition: 0.3s;
 }
 
-.field-wrapper-r label::after {
-  color: #059669;
-}
-
-.field-wrapper-r input:focus ~ label,
-.field-wrapper-r input:valid ~ label {
+.auth-rec-field-wrapper-r input:focus ~ label,
+.auth-rec-field-wrapper-r input:valid ~ label {
   top: -10px;
   font-size: 12px;
-  color: #059669;
 }
 
-.field-wrapper-r i {
-  position: absolute;
-  right: 0;
-  top: 10px;
-}
+/* ================= BUTTONS ================= */
 
-/* ================= BUTTON ================= */
-
-.submit-button {
+.auth-rec-submit-button,
+.auth-rec-submit-button-r {
   margin-top: 30px;
   padding: 10px 20px;
   border-radius: 30px;
@@ -258,166 +246,125 @@
   transition: 0.4s;
 }
 
-.submit-button-r {
-  margin-top: 30px;
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: 2px solid #059669;
-  background: transparent;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.4s;
+.auth-rec-submit-button {
+  color: #ffffff;
+}
+
+.auth-rec-submit-button-r {
   color: #059669;
 }
 
-.submit-button:hover {
+.auth-rec-submit-button:hover,
+.auth-rec-submit-button-r:hover {
   background: #059669;
-  /* color: #1a1a2e; */
   color: #ffffff;
 }
 
-.submit-button-r:hover {
-  background: #059669;
-  /* color: #1a1a2e; */
-  color: #ffffff;
-}
+/* ================= SWITCH LINKS ================= */
 
-/* ================= SWITCH LINK ================= */
-
-.switch-link {
-  margin-top: 20px;
-  text-align: center;
-}
-.switch-link-r {
+.auth-rec-switch-link,
+.auth-rec-switch-link-r {
   margin-top: 20px;
   text-align: center;
 }
 
-.switch-link-r p {
+.auth-rec-switch-link button,
+.auth-rec-switch-link-r button {
+  font-size: 1rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-rec-switch-link-r p {
   color: #059669;
 }
 
-.switch-link button {
-  background: none;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-}
-.switch-link-r button {
-  background: none;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.register-trigger {
-  color: #a2f1d8;
-}
-
-.login-trigger {
-  color: #007550;
-}
-
-.fa-solid.l {
-  color: #ffffff;
-}
-.fa-solid {
+.auth-rec-switch-link-r button {
   color: #059669;
 }
 /* ================= BACKGROUND SHAPES ================= */
 
-.background-shape {
+.auth-rec-background-shape {
   position: absolute;
   right: -100px;
   top: -100px;
   width: 700px;
   height: 700px;
-  /* background: linear-gradient(45deg, #1a1a2e, #00d4ff); */
   background: linear-gradient(45deg, #a2f1d8, #4becb9);
   transform: rotate(25deg);
   z-index: 0;
   transition: 1s ease;
 }
 
-.secondary-shape {
+.auth-rec-secondary-shape {
   position: absolute;
   left: -540px;
   bottom: -150px;
   width: 900px;
   height: 900px;
   background: linear-gradient(45deg, #059669, #003a28);
-  /* background: #1a1a2e; */
   border: 3px solid #059669;
   transform: rotate(25deg);
   z-index: 0;
   transition: 1s ease;
 }
 
-.auth-wrapper.toggled .background-shape {
+.auth-rec-wrapper.toggled .auth-rec-background-shape {
   transform: rotate(0deg);
 }
 
-.auth-wrapper.toggled .secondary-shape {
+.auth-rec-wrapper.toggled .auth-rec-secondary-shape {
   transform: rotate(-15deg);
-}
-
-/* ================= FOOTER ================= */
-
-.auth-footer {
-  margin: 50px 60px;
-  padding: 60px 50px;
-  background-color: #059669;
-  text-align: center;
-  font-size: 14px;
-  color: #000000;
 }
 
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-  .auth-wrapper {
+  .auth-rec-wrapper {
     flex-direction: column;
     height: auto;
     border: none;
     box-shadow: none;
   }
 
-  .credentials-panel,
-  .welcome-section {
+  .auth-rec-credentials-panel,
+  .auth-rec-welcome-section {
     position: relative;
     width: 100%;
     transform: none !important;
     padding: 40px 25px;
   }
 
-  .welcome-section {
+  .auth-rec-welcome-section {
     display: none;
   }
 
-  .background-shape,
-  .secondary-shape {
+  .auth-rec-background-shape,
+  .auth-rec-secondary-shape {
     display: none;
   }
 
-  .credentials-panel.signup {
+  .auth-rec-credentials-panel.signup {
     display: none;
   }
 
-  .auth-wrapper.toggled .credentials-panel.signin {
+  .auth-rec-wrapper.toggled .auth-rec-credentials-panel.signin {
     display: none;
   }
 
-  .auth-wrapper.toggled .credentials-panel.signup {
+  .auth-rec-wrapper.toggled .auth-rec-credentials-panel.signup {
     display: flex;
   }
 }
 
 @media (max-width: 1200px) {
-  .auth-candidate-page-left {
+  .auth-recruiter-page-left {
     display: none;
   }
 
-  .auth-candidate-page-right {
+  .auth-recruiter-page-right {
     flex: 1;
   }
 }

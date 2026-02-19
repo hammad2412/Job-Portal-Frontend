@@ -57,7 +57,7 @@ const AuthCandidate = () => {
         return;
       }
 
-      navigate("/candidate/dashboard");
+      navigate("/candidate");
     } catch (err) {
       setError(err.response?.data?.message || "Invalid credentials");
     } finally {

@@ -8,10 +8,7 @@ const Benefits = () => {
     <section className="benefits-wrapper">
       <div className="benefits-container">
         {/* Candidate Card */}
-        <div
-          className="benefit-large candidate"
-          onClick={() => navigate("/auth/candidate")}
-        >
+        <div className="benefit-large candidate">
           <p className="benefit-tag">Got Talent?</p>
           <h2>Build a career with clarity</h2>
 
@@ -22,15 +19,19 @@ const Benefits = () => {
             <li>🔐 Trusted companies only</li>
             <li>🚀 Long-term career matching</li>
           </ul>
-
-          <span className="benefit-cta">Start your journey →</span>
+          <div>
+            <button
+              className="benefit-btn"
+              type="button"
+              onClick={() => navigate("/auth/candidate")}
+            >
+              Start your journey →
+            </button>
+          </div>
         </div>
 
         {/* Recruiter Card */}
-        <div
-          className="benefit-large recruiter"
-          onClick={() => navigate("/auth/recruiter")}
-        >
+        <div className="benefit-large recruiter">
           <p className="benefit-tag">Need Talent?</p>
           <h2>Hire with precision</h2>
 
@@ -41,8 +42,15 @@ const Benefits = () => {
             <li>⏱ Reduced time-to-hire</li>
             <li>🔎 Precision talent discovery</li>
           </ul>
-
-          <span className="benefit-cta">Start hiring →</span>
+          <div>
+            <button
+              className="benefit-btn"
+              type="button"
+              onClick={() => navigate("/auth/recruiter")}
+            >
+              Start hiring →
+            </button>
+          </div>
         </div>
       </div>
     </section>

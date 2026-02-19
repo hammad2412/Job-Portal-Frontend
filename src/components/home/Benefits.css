@@ -22,7 +22,6 @@
   min-width: 320px;
   padding: 50px;
   border-radius: 20px;
-  cursor: pointer;
   transition: all 0.35s ease;
   display: flex;
   flex-direction: column;
@@ -83,10 +82,14 @@
   line-height: 1.6;
 }
 
-.benefit-cta {
+.benefit-btn {
+  display: flex;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  background: none;
   font-weight: 500;
   font-size: 1.5rem;
-  opacity: 0.9;
   transition: opacity 0.3s ease;
 }
 

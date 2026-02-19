@@ -1,0 +1,31 @@
+/* ===== Main Layout Wrapper ===== */
+
+.candidate-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #dfe9ff;
+}
+
+/* ===== Body (Sidebar + Content) ===== */
+
+.candidate-layout-body {
+  display: flex;
+  flex: 1;
+}
+
+/* ===== Main Content ===== */
+
+.candidate-layout-content {
+  flex: 1;
+  min-width: 0;
+  /* padding: 0 300px; */
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1000px) {
+  .sidebar-display {
+    display: none;
+  }
+}

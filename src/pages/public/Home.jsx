@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     if (user) {
       if (user.role === "candidate") {
-        navigate("/candidate/dashboard");
+        navigate("/candidate");
       } else {
         navigate("/recruiter/dashboard");
       }

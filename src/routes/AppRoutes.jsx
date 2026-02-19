@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import RoleRoute from "./RoleRoute";
 
@@ -17,6 +17,10 @@ import RecruiterDashboard from "../pages/recruiter/RecruiterDashboard";
 
 // Admin Pages
 import AdminDashboard from "../pages/admin/AdminDashboard";
+import CandidateLayout from "../components/candidateDashboard/layout/CandidateLayout";
+import AppliedJobs from "../pages/candidate/AppliedJobs";
+import SavedJobs from "../pages/candidate/SavedJobs";
+import CandidateProfile from "../pages/candidate/CandidateProfile";
 
 const AppRoutes = () => {
   return (
@@ -26,20 +30,27 @@ const AppRoutes = () => {
 
       {/* Auth Routes */}
       <Route path="/auth/candidate" element={<AuthCandidate />} />
-
       <Route path="/auth/recruiter" element={<AuthRecruiter />} />
 
-      {/* Candidate Routes */}
+      {/* ================= CANDIDATE ROUTES ================= */}
       <Route
-        path="/candidate/dashboard"
+        path="/candidate"
         element={
           <PrivateRoute>
             <RoleRoute allowedRoles={["candidate"]}>
-              <CandidateDashboard />
+              <CandidateLayout />
             </RoleRoute>
           </PrivateRoute>
         }
-      />
+      >
+        {/* Default redirect */}
+        <Route index element={<Navigate to="dashboard" replace />} />
+
+        <Route path="dashboard" element={<CandidateDashboard />} />
+        <Route path="applied" element={<AppliedJobs />} />
+        <Route path="saved" element={<SavedJobs />} />
+        <Route path="profile" element={<CandidateProfile />} />
+      </Route>
 
       {/* Recruiter Routes */}
       <Route
