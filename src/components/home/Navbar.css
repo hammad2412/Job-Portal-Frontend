@@ -1,9 +1,9 @@
-.navbar {
+.home-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: #f3f4e5;
-  padding: 18px 40px;
+  padding: 5px 20px;
   font-family:
     Inter,
     system-ui,
@@ -22,11 +22,9 @@
 
 /* Logo */
 
-.navbar-logo {
-  padding: 0 55px;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #111827;
+.home-navbar-logo {
+  width: auto;
+  height: 40px;
   cursor: pointer;
 }
 

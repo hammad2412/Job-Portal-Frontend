@@ -9,18 +9,25 @@ import Home from "../pages/public/Home";
 import AuthCandidate from "../pages/auth/candidate/AuthCandidate";
 import AuthRecruiter from "../pages/auth/recruiter/AuthRecruiter";
 
-// Candidate Pages
-import CandidateDashboard from "../pages/candidate/CandidateDashboard";
-
-// Recruiter Pages
-import RecruiterDashboard from "../pages/recruiter/RecruiterDashboard";
-
 // Admin Pages
 import AdminDashboard from "../pages/admin/AdminDashboard";
+
+// Candidate Pages
+import CandidateDashboard from "../pages/candidate/CandidateDashboard";
 import CandidateLayout from "../components/candidateDashboard/layout/CandidateLayout";
 import AppliedJobs from "../pages/candidate/AppliedJobs";
 import SavedJobs from "../pages/candidate/SavedJobs";
 import CandidateProfile from "../pages/candidate/CandidateProfile";
+
+// Recruiter Pages
+import RecruiterDashboard from "../pages/recruiter/RecruiterDashboard";
+import RecruiterLayout from "../components/recruiter/layout/RecruiterLayout";
+import JobsPage from "../pages/recruiter/JobsPage";
+import JobDetailsPage from "../pages/recruiter/JobDetailsPage";
+import PostJobPage from "../pages/recruiter/PostJobPage";
+import CompanyProfilePage from "../pages/recruiter/CompanyProfilePage";
+import SettingsPage from "../pages/recruiter/SettingsPage";
+import EditJobPage from "../pages/recruiter/EditJobPage";
 
 const AppRoutes = () => {
   return (
@@ -52,17 +59,28 @@ const AppRoutes = () => {
         <Route path="profile" element={<CandidateProfile />} />
       </Route>
 
-      {/* Recruiter Routes */}
+      {/* ================= RECRUITER ROUTES ================= */}
       <Route
-        path="/recruiter/dashboard"
+        path="/recruiter"
         element={
           <PrivateRoute>
             <RoleRoute allowedRoles={["recruiter"]}>
-              <RecruiterDashboard />
+              <RecruiterLayout />
             </RoleRoute>
           </PrivateRoute>
         }
-      />
+      >
+        {/* Default redirect */}
+        <Route index element={<Navigate to="dashboard" replace />} />
+
+        <Route path="dashboard" element={<RecruiterDashboard />} />
+        <Route path="jobs" element={<JobsPage />} />
+        <Route path="jobs/:jobId" element={<JobDetailsPage />} />
+        <Route path="jobs/:jobId/edit" element={<EditJobPage />} />
+        <Route path="post-job" element={<PostJobPage />} />
+        <Route path="company-profile" element={<CompanyProfilePage />} />
+        <Route path="settings" element={<SettingsPage />} />
+      </Route>
 
       {/* Admin Routes */}
       <Route

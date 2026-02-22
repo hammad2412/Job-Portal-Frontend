@@ -6,45 +6,67 @@ import { useNavigate } from "react-router-dom";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [accessToken, setLocalAccessToken] = useState(null);
-  const navigate = useNavigate();
-
-  // 🔥 Restore session on app load
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const refreshUser = async () => {
-      try {
-        const res = await api.post("/auth/refresh");
+  const navigate = useNavigate();
 
-        setAccessToken(res.data.accessToken);
-        setLocalAccessToken(res.data.accessToken);
-        setUser(res.data.user);
+  /* =========================================
+     Restore session on app load (IMPORTANT)
+  ========================================= */
+  useEffect(() => {
+    const initializeAuth = async () => {
+      try {
+        // 1️⃣ Get new access token using refresh token cookie
+        const refreshRes = await api.post("/auth/refresh");
+
+        const newAccessToken = refreshRes.data.accessToken;
+
+        setAccessToken(newAccessToken);
+        setLocalAccessToken(newAccessToken);
+
+        // 2️⃣ Now fetch real user from backend
+        const meRes = await api.get("/auth/me");
+
+        setUser(meRes.data.data);
       } catch (err) {
-        console.log("Not logged in");
+        console.log("No active session");
         console.error(err);
+        setUser(null);
       } finally {
         setLoading(false);
       }
     };
 
-    refreshUser();
+    initializeAuth();
   }, []);
 
+  /* =========================================
+     LOGIN
+  ========================================= */
   const login = async (email, password) => {
     const response = await api.post("/auth/login", {
       email,
       password,
     });
 
-    const { user, accessToken } = response.data;
+    const { accessToken } = response.data;
 
     setAccessToken(accessToken);
     setLocalAccessToken(accessToken);
-    setUser(user);
 
-    return user;
+    // 🔥 Immediately fetch real user from backend
+    const meRes = await api.get("/auth/me");
+
+    setUser(meRes.data.data);
+
+    console.log("Fresh User After Login:", meRes.data.data);
+
+    return meRes.data.data;
   };
 
+  /* =========================================
+     LOGOUT
+  ========================================= */
   const logout = async () => {
     try {
       await api.post("/auth/logout");
@@ -62,7 +84,16 @@ const AuthProvider = ({ children }) => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <AuthContext.Provider value={{ user, accessToken, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        setUser,
+        accessToken,
+        login,
+        logout,
+        loading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

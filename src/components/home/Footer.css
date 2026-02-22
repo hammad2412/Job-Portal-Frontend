@@ -16,11 +16,9 @@
   gap: 60px;
 }
 
-.footer-column h4 {
+.footer-column img {
   margin-bottom: 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
+  width: 60%;
 }
 
 .footer-logo {

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Footer.css";
+import logo from "../../assets/logo-white.png";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ const Footer = () => {
       <div className="footer-container">
         {/* Brand Column */}
         <div className="footer-column">
-          <h2 className="footer-logo">JobPortal</h2>
+          <img src={logo} alt="Talentium Logo" />
           <p className="footer-description">
             A modern hiring platform connecting professionals and
             forward-thinking organizations.

@@ -1,9 +1,92 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/useAuth";
+import api from "../../../api/axios";
 import "./AuthRecruiter.css";
 import bgImg from "../../../assets/auth-bg.png";
 
 const AuthRecruiter = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
   const [isToggled, setIsToggled] = useState(false);
+
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [registerData, setRegisterData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  /* ================= HANDLE CHANGE ================= */
+
+  const handleLoginChange = (e) => {
+    setLoginData({
+      ...loginData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleRegisterChange = (e) => {
+    setRegisterData({
+      ...registerData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  /* ================= LOGIN SUBMIT ================= */
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const user = await login(loginData.email, loginData.password);
+
+      if (user.role !== "recruiter") {
+        setError("This account is not registered as a recruiter.");
+        setLoading(false);
+        return;
+      }
+
+      if (!user.companyId) {
+        navigate("/recruiter/company-profile");
+      } else {
+        navigate("/recruiter");
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || "Invalid credentials");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /* ================= REGISTER SUBMIT ================= */
+
+  const handleRegisterSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      await api.post("/auth/register/recruiter", registerData);
+
+      setIsToggled(false);
+      setRegisterData({ name: "", email: "", password: "" });
+    } catch (err) {
+      setError(err.response?.data?.message || "Registration failed");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="auth-recruiter-page">
@@ -14,8 +97,7 @@ const AuthRecruiter = () => {
       >
         <div className="overlay">
           <div className="auth-hero-text">
-            <h2>Choose a job you love, and you never have to work a day.</h2>
-            <p>- Confucius</p>
+            <h2>Hire smarter. Build stronger teams.</h2>
           </div>
         </div>
       </div>
@@ -26,24 +108,40 @@ const AuthRecruiter = () => {
           <div className="auth-rec-background-shape"></div>
           <div className="auth-rec-secondary-shape"></div>
 
-          {/* LOGIN */}
+          {/* ================= LOGIN PANEL ================= */}
           <div className="auth-rec-credentials-panel signin">
-            <h2 className="auth-rec-slide-element">Login</h2>
+            <h2 className="auth-rec-slide-element">Recruiter Login</h2>
 
-            <form onSubmit={(e) => e.preventDefault()}>
+            {error && !isToggled && (
+              <div className="auth-rec-error">{error}</div>
+            )}
+
+            <form onSubmit={handleLoginSubmit}>
               <div className="auth-rec-field-wrapper auth-rec-slide-element">
-                <input type="text" required />
+                <input
+                  type="text"
+                  name="email"
+                  value={loginData.email}
+                  onChange={handleLoginChange}
+                  required
+                />
                 <label>Email</label>
               </div>
 
               <div className="auth-rec-field-wrapper auth-rec-slide-element">
-                <input type="password" required />
+                <input
+                  type="password"
+                  name="password"
+                  value={loginData.password}
+                  onChange={handleLoginChange}
+                  required
+                />
                 <label>Password</label>
               </div>
 
               <div className="auth-rec-field-wrapper auth-rec-slide-element">
-                <button className="auth-rec-submit-button">
-                  Login
+                <button className="auth-rec-submit-button" disabled={loading}>
+                  {loading ? "Signing in..." : "Login"}
                 </button>
               </div>
 
@@ -52,7 +150,10 @@ const AuthRecruiter = () => {
                   Don't have an account? <br />
                   <button
                     type="button"
-                    onClick={() => setIsToggled(true)}
+                    onClick={() => {
+                      setError("");
+                      setIsToggled(true);
+                    }}
                   >
                     Register
                   </button>
@@ -65,29 +166,51 @@ const AuthRecruiter = () => {
             <h2>WELCOME BACK!</h2>
           </div>
 
-          {/* REGISTER */}
+          {/* ================= REGISTER PANEL ================= */}
           <div className="auth-rec-credentials-panel signup">
-            <h2 className="auth-rec-slide-element">Register</h2>
+            <h2 className="auth-rec-slide-element">Recruiter Register</h2>
 
-            <form onSubmit={(e) => e.preventDefault()}>
+            {error && isToggled && (
+              <div className="auth-rec-error">{error}</div>
+            )}
+
+            <form onSubmit={handleRegisterSubmit}>
               <div className="auth-rec-field-wrapper-r auth-rec-slide-element">
-                <input type="text" required />
+                <input
+                  type="text"
+                  name="name"
+                  value={registerData.name}
+                  onChange={handleRegisterChange}
+                  required
+                />
                 <label>Full Name</label>
               </div>
 
               <div className="auth-rec-field-wrapper-r auth-rec-slide-element">
-                <input type="text" required />
+                <input
+                  type="text"
+                  name="email"
+                  value={registerData.email}
+                  onChange={handleRegisterChange}
+                  required
+                />
                 <label>Email</label>
               </div>
 
               <div className="auth-rec-field-wrapper-r auth-rec-slide-element">
-                <input type="password" required />
+                <input
+                  type="password"
+                  name="password"
+                  value={registerData.password}
+                  onChange={handleRegisterChange}
+                  required
+                />
                 <label>Password</label>
               </div>
 
               <div className="auth-rec-field-wrapper-r auth-rec-slide-element">
-                <button className="auth-rec-submit-button-r">
-                  Register
+                <button className="auth-rec-submit-button-r" disabled={loading}>
+                  {loading ? "Creating account..." : "Register"}
                 </button>
               </div>
 
@@ -96,7 +219,10 @@ const AuthRecruiter = () => {
                   Already have an account? <br />
                   <button
                     type="button"
-                    onClick={() => setIsToggled(false)}
+                    onClick={() => {
+                      setError("");
+                      setIsToggled(false);
+                    }}
                   >
                     Login
                   </button>

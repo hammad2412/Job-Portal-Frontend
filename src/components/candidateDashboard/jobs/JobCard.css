@@ -3,7 +3,7 @@
   background: white;
   padding: 20px;
   border-radius: 20px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #b9c4d1;
 
   transition: 0.3s;
 }
@@ -56,12 +56,15 @@
 .apply-btn {
   padding: 8px 16px;
   border-radius: 6px;
-  border: none;
-  background: #059669;
-  color: white;
+  border: 1px solid #2563eb;
+  background: transparent;
+  color: #000000;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .apply-btn:hover {
-  background: #047857;
+  /* background: #1637a3; */
+  background: #2563eb;
+  color: #fff;
 }

@@ -1,0 +1,86 @@
+.recruiter-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f9fafb;
+}
+
+/* Navbar */
+.recruiter-navbar {
+  height: 60px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.recruiter-navbar h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.recruiter-name {
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Body */
+.recruiter-body {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar */
+.recruiter-sidebar {
+  width: 240px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.recruiter-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recruiter-sidebar a {
+  text-decoration: none;
+  color: #374151;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.recruiter-sidebar a:hover {
+  background: #f3f4f6;
+}
+
+.recruiter-sidebar a.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* Main Content */
+.recruiter-main {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+/* Footer */
+.recruiter-footer {
+  height: 50px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #6b7280;
+}

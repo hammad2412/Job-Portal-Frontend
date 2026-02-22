@@ -1,6 +1,7 @@
 import homeBefore from "../../assets/home-before.webp";
 import homeAfter from "../../assets/home-after.webp";
 import "./ConnectSection.css";
+import logo from "../../assets/logo.png";
 
 const ConnectSection = () => {
   return (
@@ -21,13 +22,17 @@ const ConnectSection = () => {
         {/* Comparison Images */}
         <div className="connect-images">
           <div className="connect-image-card">
-            <p className="image-label">The usual path</p>
-            <img src={homeBefore} alt="Traditional hiring path" />
+            <div className="image-path">
+              <p className="image-label">The usual path</p>
+              <img src={homeBefore} alt="Traditional hiring path" />
+            </div>
           </div>
 
           <div className="connect-image-card highlight">
-            <p className="image-label">JobPortal</p>
-            <img src={homeAfter} alt="Modern hiring path" />
+            <img src={logo} alt="Talentium Logo" className="connection-logo" />
+            <div className="image-path">
+              <img src={homeAfter} alt="Modern hiring path" />
+            </div>
           </div>
         </div>
       </div>

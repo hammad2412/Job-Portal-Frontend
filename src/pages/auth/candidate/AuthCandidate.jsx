@@ -73,7 +73,7 @@ const AuthCandidate = () => {
     setLoading(true);
 
     try {
-      await api.post("/register/candidate", registerData);
+      await api.post("/auth/register/candidate", registerData);
 
       // After successful registration → switch to login
       setIsToggled(false);

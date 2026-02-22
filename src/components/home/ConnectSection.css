@@ -54,26 +54,31 @@
   text-align: center;
 }
 
-.connect-image-card img {
+.image-path img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 /* Label */
 
 .image-label {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 2rem;
+  color: rgb(68, 68, 68);
   margin-bottom: 20px;
-  color: #374151;
+}
+
+.connection-logo {
+  width: 50%;
+  margin-bottom: 20px;
 }
 
 /* Highlight “after” image */
 
-.connect-image-card.highlight .image-label {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #2563eb;
+.connect-image-card.highlight {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ================= RESPONSIVE ================= */
