@@ -1,36 +1,38 @@
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import {
   createCompany,
   getMyCompany,
   updateCompany,
 } from "../../services/company.service";
+import ConfirmModal from "../../components/recruiter/shared/ConfirmModal";
+import "../../styles/recruiter/companyProfilePage.css";
 
 const CompanyProfilePage = () => {
-  const navigate = useNavigate();
   const { user, setUser } = useAuth();
 
-  const isEditMode = !!user?.companyId;
+  const companyExists = !!user?.companyId;
 
   const [formData, setFormData] = useState({
     name: "",
-    // website: "",
+    website: "",
     industry: "",
     size: "",
-    // location: "",
-    //  description: "",
+    location: "",
+    description: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isEditing, setIsEditing] = useState(!companyExists);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   useEffect(() => {
-    if (isEditMode) {
+    if (companyExists) {
       fetchCompany();
     }
-  }, []);
+  }, [companyExists]);
 
   const fetchCompany = async () => {
     try {
@@ -48,32 +50,22 @@ const CompanyProfilePage = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
+  const handleConfirmSave = async () => {
     try {
-      let response;
+      setLoading(true);
 
-      if (isEditMode) {
-        response = await updateCompany(formData);
-        console.log("Update Company Response:", response);
+      if (companyExists) {
+        await updateCompany(formData);
       } else {
-        response = await createCompany(formData);
-        console.log("Create Company Response:", response);
+        await createCompany(formData);
       }
 
-      // 🔥 Refresh real user from backend
       const freshUser = await api.get("/auth/me");
-      console.log("Fresh User:", freshUser.data);
-
       setUser(freshUser.data.data);
 
-      navigate("/recruiter/dashboard");
+      setIsEditing(false);
+      setShowConfirm(false);
     } catch (err) {
-      console.error("Company Operation Error:", err);
-      console.error("Error Response:", err.response);
       setError(err.response?.data?.message || "Operation failed");
     } finally {
       setLoading(false);
@@ -81,59 +73,154 @@ const CompanyProfilePage = () => {
   };
 
   return (
-    <div>
-      <h2>{isEditMode ? "Edit Company" : "Create Company"}</h2>
+    <>
+      <div className="company-page">
+        <div className="company-header">
+          <h2>Company Profile</h2>
 
-      {error && <p>{error}</p>}
+          {companyExists && !isEditing && (
+            <button
+              className="edit-company-btn"
+              onClick={() => setIsEditing(true)}
+            >
+              Edit Company Details
+            </button>
+          )}
+        </div>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          name="name"
-          value={formData.name}
-          placeholder="Company Name"
-          onChange={handleChange}
-          required
-        />
-        {/* <input
-          name="website"
-          value={formData.website}
-          placeholder="Website"
-          onChange={handleChange}
-        /> */}
-        <input
-          name="industry"
-          value={formData.industry}
-          placeholder="Industry"
-          onChange={handleChange}
-        />
-        <input
-          name="size"
-          value={formData.size}
-          placeholder="Company Size"
-          onChange={handleChange}
-        />
-        {/* <input
-          name="location"
-          value={formData.location}
-          placeholder="Location"
-          onChange={handleChange}
-        />
-        <textarea
-          name="description"
-          value={formData.description}
-          placeholder="Description"
-          onChange={handleChange}
-        /> */}
+        {error && <div className="company-error">{error}</div>}
 
-        <button type="submit" disabled={loading}>
-          {loading
-            ? "Saving..."
-            : isEditMode
-              ? "Update Company"
-              : "Create Company"}
-        </button>
-      </form>
-    </div>
+        {/* ================= VIEW MODE ================= */}
+        {companyExists && !isEditing && (
+          <div className="company-view-card">
+            <div className="company-detail-item">
+              <span className="label">Company Name</span>
+              <span>{formData.name}</span>
+            </div>
+
+            <div className="company-detail-item">
+              <span className="label">Website</span>
+              <span>{formData.website || "-"}</span>
+            </div>
+
+            <div className="company-detail-item">
+              <span className="label">Industry</span>
+              <span>{formData.industry || "-"}</span>
+            </div>
+
+            <div className="company-detail-item">
+              <span className="label">Company Size</span>
+              <span>{formData.size || "-"}</span>
+            </div>
+
+            <div className="company-detail-item">
+              <span className="label">Location</span>
+              <span>{formData.location || "-"}</span>
+            </div>
+
+            <div className="company-detail-item full-width">
+              <span className="label">Description</span>
+              <span>{formData.description || "-"}</span>
+            </div>
+          </div>
+        )}
+
+        {/* ================= EDIT MODE ================= */}
+        {isEditing && (
+          <form
+            className="company-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              setShowConfirm(true);
+            }}
+          >
+            <div className="company-grid">
+              <div className="form-group">
+                <label>Company Name</label>
+                <input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Website</label>
+                <input
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Industry</label>
+                <input
+                  name="industry"
+                  value={formData.industry}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Company Size</label>
+                <input
+                  name="size"
+                  value={formData.size}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group full-width">
+                <label>Location</label>
+                <input
+                  name="location"
+                  value={formData.location}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group full-width">
+                <label>Description</label>
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <div className="company-actions">
+              {companyExists && (
+                <button
+                  type="button"
+                  className="cancel-btn"
+                  onClick={() => setIsEditing(false)}
+                >
+                  Cancel
+                </button>
+              )}
+
+              <button type="submit" disabled={loading}>
+                {loading ? "Saving..." : "Save Changes"}
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+
+      {showConfirm && (
+        <ConfirmModal
+          message="Are you sure you want to save these company changes?"
+          confirmText="Save Changes"
+          cancelText="Review Again"
+          variant="primary"
+          onConfirm={handleConfirmSave}
+          onCancel={() => setShowConfirm(false)}
+        />
+      )}
+    </>
   );
 };
 

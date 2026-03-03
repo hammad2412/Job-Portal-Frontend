@@ -84,13 +84,13 @@ const JobFeed = () => {
 
       {/* Pagination */}
       <div className="pagination-controls">
-        {pagination.prev && (
+        {pagination?.prev && (
           <button onClick={() => setPage(page - 1)}>Prev</button>
         )}
 
         <span style={{ margin: "0 10px" }}>Page {page}</span>
 
-        {pagination.next && (
+        {pagination?.next && (
           <button onClick={() => setPage(page + 1)}>Next</button>
         )}
       </div>

@@ -1,0 +1,65 @@
+/* ===============================
+   NAVBAR CONTAINER
+================================= */
+
+.recruiter-navbar {
+  height: 70px;
+  background: white;
+  border-bottom: 1px solid var(--recruiter-border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* ===============================
+   LEFT SIDE
+================================= */
+
+.navbar-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--recruiter-primary);
+  margin: 0;
+}
+
+/* ===============================
+   RIGHT SIDE
+================================= */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.recruiter-name {
+  font-size: 14px;
+  color: var(--recruiter-text-muted);
+}
+
+/* ===============================
+   LOGOUT BUTTON
+================================= */
+
+.recruiter-logout-btn {
+  height: 38px;
+  padding: 0 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--recruiter-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.recruiter-logout-btn:hover {
+  background-color: var(--recruiter-primary-hover);
+}
+
+.recruiter-logout-btn:active {
+  transform: scale(0.97);
+}

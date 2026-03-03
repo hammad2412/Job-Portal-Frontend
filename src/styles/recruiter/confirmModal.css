@@ -1,0 +1,136 @@
+/* ===============================
+   OVERLAY
+================================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ===============================
+   MODAL BOX
+================================= */
+
+.modal-box {
+  width: 380px;
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  animation: scaleIn 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--recruiter-text-dark);
+}
+
+.modal-message {
+  font-size: 14px;
+  color: var(--recruiter-text-muted);
+}
+
+/* ===============================
+   ACTIONS
+================================= */
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Buttons */
+
+.modal-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+/* Cancel */
+
+.cancel-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+/* Confirm */
+
+.confirm-btn {
+  background: var(--recruiter-primary);
+  color: white;
+}
+
+.confirm-btn:hover {
+  background: var(--recruiter-primary-hover);
+}
+
+/* ===============================
+   PRIMARY CONFIRM BUTTON (Emerald)
+================================= */
+
+.confirm-primary-btn {
+  background: var(--recruiter-primary);
+  color: white;
+}
+
+.confirm-primary-btn:hover {
+  background: var(--recruiter-primary-hover);
+}
+
+/* ===============================
+   DANGER CONFIRM BUTTON (Red)
+================================= */
+
+.confirm-danger-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.confirm-danger-btn:hover {
+  background: #b91c1c;
+}
+
+/* ===============================
+   ANIMATIONS
+================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

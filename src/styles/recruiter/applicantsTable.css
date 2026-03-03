@@ -1,0 +1,87 @@
+/* ===============================
+   EMPTY STATE
+================================= */
+
+.applicants-empty {
+  padding: 40px;
+  text-align: center;
+  background: var(--recruiter-light-bg);
+  border-radius: 14px;
+  border: 1px dashed var(--recruiter-border-soft);
+  color: var(--recruiter-text-muted);
+}
+
+/* ===============================
+   TABLE WRAPPER HANDLED BY TableWrapper
+================================= */
+
+.applicants-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* HEADER */
+
+.applicants-table thead {
+  background: var(--recruiter-light-bg);
+}
+
+.applicants-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--recruiter-text-dark);
+}
+
+/* BODY */
+
+.applicants-table td {
+  padding: 14px 16px;
+  border-top: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.applicants-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* ACTION CELL */
+
+.applicants-table td:last-child {
+  white-space: nowrap;
+}
+
+/* ===============================
+   ROW STYLING
+================================= */
+
+.applicant-row td {
+  vertical-align: middle;
+}
+
+/* Candidate Info */
+
+.candidate-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.candidate-name {
+  font-weight: 600;
+  color: var(--recruiter-text-dark);
+}
+
+.candidate-email {
+  color: var(--recruiter-text-muted);
+  font-size: 13px;
+}
+
+/* Actions Wrapper */
+
+.applicant-actions-wrapper {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

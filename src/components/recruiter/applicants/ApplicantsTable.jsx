@@ -1,18 +1,28 @@
 import TableWrapper from "../shared/TableWrapper";
 import ApplicantRow from "./ApplicantRow";
+import "../../../styles/recruiter/applicantsTable.css";
 
 const ApplicantsTable = ({ applications, refetch }) => {
+  if (!applications || applications.length === 0) {
+    return (
+      <div className="applicants-empty">
+        <p>No applications found.</p>
+      </div>
+    );
+  }
+
   return (
     <TableWrapper>
-      <table className="jobs-table">
+      <table className="applicants-table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Candidate</th>
             <th>Email</th>
             <th>Status</th>
-            <th>Change Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
+
         <tbody>
           {applications.map((application) => (
             <ApplicantRow

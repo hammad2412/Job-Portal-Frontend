@@ -1,0 +1,37 @@
+/* ===============================
+   WRAPPER
+================================= */
+
+.applicant-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* ===============================
+   SELECT DROPDOWN
+================================= */
+
+.status-select {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid var(--recruiter-border-soft);
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: var(--recruiter-primary);
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
+}
+
+.status-select:hover {
+  border-color: var(--recruiter-primary);
+}
+
+.status-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

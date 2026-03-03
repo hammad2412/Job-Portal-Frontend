@@ -1,86 +1,81 @@
+/* ===============================
+   RECRUITER THEME VARIABLES
+================================= */
+
+:root {
+  --recruiter-primary: #059669;
+  --recruiter-primary-hover: #047857;
+  --recruiter-light-bg: #ecfdf5;
+  --recruiter-border-soft: #d1fae5;
+  --recruiter-text-dark: #111827;
+  --recruiter-text-muted: #6b7280;
+}
+
+/* ===============================
+   LAYOUT STRUCTURE
+================================= */
+
 .recruiter-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background: #f9fafb;
+  min-height: 100vh;
+  background-color: #f9fafb;
 }
 
-/* Navbar */
-.recruiter-navbar {
-  height: 60px;
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 25px;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.recruiter-navbar h2 {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.recruiter-name {
-  font-weight: 500;
-  color: #374151;
-}
-
-/* Body */
 .recruiter-body {
   display: flex;
   flex: 1;
 }
 
-/* Sidebar */
-.recruiter-sidebar {
-  width: 240px;
-  background: #ffffff;
-  border-right: 1px solid #e5e7eb;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
+/* ===============================
+   MAIN CONTENT AREA
+================================= */
 
-.recruiter-sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.recruiter-sidebar a {
-  text-decoration: none;
-  color: #374151;
-  padding: 10px 12px;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: 0.2s ease;
-}
-
-.recruiter-sidebar a:hover {
-  background: #f3f4f6;
-}
-
-.recruiter-sidebar a.active {
-  background: #2563eb;
-  color: white;
-}
-
-/* Main Content */
 .recruiter-main {
   flex: 1;
-  padding: 25px;
-  overflow-y: auto;
+  padding: 32px;
+  background-color: #f3f4f6;
+  min-height: calc(100vh - 120px);
 }
 
-/* Footer */
-.recruiter-footer {
-  height: 50px;
-  background: #ffffff;
+.recruiter-content-wrapper {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  min-height: 100%;
+}
+
+/* ===============================
+   LOADING SCREEN
+================================= */
+
+.recruiter-loading-screen {
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid #e5e7eb;
-  font-size: 14px;
-  color: #6b7280;
+  background-color: var(--recruiter-light-bg);
+}
+
+.recruiter-loading-screen p {
+  margin-top: 16px;
+  font-weight: 500;
+  color: var(--recruiter-primary);
+}
+
+.recruiter-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--recruiter-border-soft);
+  border-top: 4px solid var(--recruiter-primary);
+  border-radius: 50%;
+  animation: recruiterSpin 0.8s linear infinite;
+}
+
+@keyframes recruiterSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }

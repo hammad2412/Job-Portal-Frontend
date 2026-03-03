@@ -1,74 +1,125 @@
-/* ===== Sticky Section ===== */
+/* ===============================
+   Sticky Section
+================================= */
 
 .job-search-section {
-  height: 100px;
+  height: 110px;
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 10;
   background: transparent;
-  padding: 25px;
+  padding: 30px 20px;
   display: flex;
   justify-content: center;
 }
 
-/* ===== Main Search Container ===== */
+/* ===============================
+   Main Search Container
+================================= */
 
 .search-container {
-  /* padding: 10px 10px; */
   display: flex;
   align-items: center;
-  background: rgb(255, 255, 255);
-  border-radius: 25px;
-  border: 1px solid #d1d5db;
+  background: #ffffff;
+  border-radius: 50px;
+  border: 1px solid #e5e7eb;
   width: 1100px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  height: 64px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
-/* ===== Input Groups ===== */
+/* Subtle hover lift */
+.search-container:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   Input Groups
+================================= */
 
 .input-group {
   flex: 1;
-  padding: 12px 15px;
-  border-radius: 20px;
-  transition: border 0.1s ease;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-radius: 50px;
+  transition: all 0.2s ease;
 }
+
+/* Inputs */
 
 .input-group input {
   width: 100%;
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: 16px;
+  background: transparent;
+  color: #111827;
 }
 
-/* ===== Active Border Effect ===== */
+/* Placeholder refinement */
 
+.input-group input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* ===============================
+   Active Focus Effect (IMPROVED)
+================================= */
+
+/* No layout shift now */
 .input-group.active {
-  border: 4px solid #2563eb;
+  background: #eff6ff; /* very light blue */
 }
 
-/* ===== Divider ===== */
+.search-container:focus-within {
+  border-color: #2563eb;
+  /* box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15); */
+}
+
+/* ===============================
+   Divider
+================================= */
 
 .divider {
-  width: 2px;
-  height: 30px;
+  width: 1px;
+  height: 28px;
   background: #e5e7eb;
 }
 
-/* ===== Button ===== */
+/* ===============================
+   Search Button
+================================= */
 
 .search-btn {
-  padding: 12px 25px;
-  border-radius: 20px;
-  border: #2563eb;
+  height: 48px;
+  padding: 0 28px;
+  margin-right: 10px;
+  border-radius: 30px;
+  border: none;
   background: #2563eb;
   color: white;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  margin: 10px;
-  transition: 0.2s ease;
+  transition: all 0.2s ease;
 }
 
+/* Hover */
+
 .search-btn:hover {
-  background: #1637a3;
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Click */
+
+.search-btn:active {
+  transform: translateY(0);
 }

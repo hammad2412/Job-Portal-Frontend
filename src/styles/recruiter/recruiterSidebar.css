@@ -1,0 +1,79 @@
+/* ===============================
+   SIDEBAR CONTAINER
+================================= */
+
+.recruiter-sidebar {
+  width: 200px;
+  background: white;
+  border-right: 1px solid var(--recruiter-border-soft);
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===============================
+   HEADER
+================================= */
+
+.recruiter-sidebar-header {
+  padding: 0 24px 24px 24px;
+  border-bottom: 1px solid var(--recruiter-border-soft);
+}
+
+.recruiter-sidebar-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--recruiter-primary);
+}
+
+/* ===============================
+   NAVIGATION
+================================= */
+
+.recruiter-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+/* ===============================
+   NAV LINKS
+================================= */
+
+.sidebar-link {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--recruiter-text-dark);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.sidebar-link:hover {
+  background-color: var(--recruiter-light-bg);
+  color: var(--recruiter-primary);
+}
+
+/* ===============================
+   ACTIVE LINK
+================================= */
+
+.active-link {
+  background-color: var(--recruiter-light-bg);
+  color: var(--recruiter-primary);
+  font-weight: 600;
+}
+
+.active-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--recruiter-primary);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}

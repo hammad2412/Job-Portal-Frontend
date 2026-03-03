@@ -9,3 +9,53 @@ body {
   margin: 0;
   padding: 0;
 }
+
+:root {
+  /* ======================================
+     RECRUITER THEME (Emerald)
+  ====================================== */
+
+  --recruiter-primary: #059669; /* Emerald 600 */
+  --recruiter-primary-hover: #047857; /* Emerald 700 */
+  --recruiter-primary-light: #10b981; /* Emerald 500 */
+  --recruiter-light-bg: #ecfdf5; /* Emerald 50 */
+  --recruiter-soft-bg: #d1fae5; /* Emerald 100 */
+  --recruiter-border-soft: #a7f3d0; /* Emerald 200 */
+
+  --recruiter-text-dark: #111827; /* Gray 900 */
+  --recruiter-text-muted: #6b7280; /* Gray 500 */
+
+  --recruiter-success: #065f46; /* Emerald deep */
+  --recruiter-warning: #92400e; /* Amber 800 */
+  --recruiter-danger: #991b1b; /* Red 800 */
+
+  /* ======================================
+     CANDIDATE THEME (Blue)
+  ====================================== */
+
+  --candidate-primary: #2563eb; /* Blue 600 */
+  --candidate-primary-hover: #1d4ed8; /* Blue 700 */
+  --candidate-primary-light: #3b82f6; /* Blue 500 */
+  --candidate-light-bg: #eff6ff; /* Blue 50 */
+  --candidate-soft-bg: #dbeafe; /* Blue 100 */
+  --candidate-border-soft: #bfdbfe; /* Blue 200 */
+
+  --candidate-text-dark: #111827; /* Gray 900 */
+  --candidate-text-muted: #6b7280; /* Gray 500 */
+
+  --candidate-success: #065f46;
+  --candidate-warning: #92400e;
+  --candidate-danger: #991b1b;
+
+  /* ======================================
+     SHARED NEUTRALS
+     
+     --white: #ffffff;
+     --background-main: #f9fafb;              
+     --background-secondary: #f3f4f6;         
+     --border-light: #e5e7eb;                  
+     --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+     --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    ====================================== */
+}

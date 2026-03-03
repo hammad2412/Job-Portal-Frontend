@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8000/api/v1",
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
 
@@ -23,6 +23,10 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
+    if (!originalRequest || !error.response) {
+      return Promise.reject(error);
+    }
+
     if (
       error.response?.status === 401 &&
       !originalRequest._retry &&
@@ -33,12 +37,15 @@ api.interceptors.response.use(
       try {
         const res = await api.post("/auth/refresh");
 
-        accessToken = res.data.accessToken;
+        const newAccessToken = res.data.accessToken;
 
-        originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+        setAccessToken(newAccessToken);
+
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
 
         return api(originalRequest);
       } catch (err) {
+        setAccessToken(null);
         return Promise.reject(err);
       }
     }

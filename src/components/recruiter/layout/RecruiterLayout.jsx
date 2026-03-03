@@ -12,7 +12,12 @@ const RecruiterLayout = () => {
   const isCompanyPage = location.pathname.includes("company-profile");
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="recruiter-loading-screen">
+        <div className="recruiter-spinner"></div>
+        <p>Loading dashboard...</p>
+      </div>
+    );
   }
 
   if (!user?.companyId && !isCompanyPage) {
@@ -27,7 +32,9 @@ const RecruiterLayout = () => {
         <RecruiterSidebar />
 
         <main className="recruiter-main">
-          <Outlet />
+          <div className="recruiter-content-wrapper">
+            <Outlet />
+          </div>
         </main>
       </div>
 

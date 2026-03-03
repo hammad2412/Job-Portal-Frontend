@@ -1,0 +1,36 @@
+/* ===============================
+   BASE BADGE
+================================= */
+
+.applicant-status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+/* ===============================
+   APPLICATION STATUS COLORS
+================================= */
+
+.status-applied {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.status-reviewed {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}
+
+.status-shortlisted {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-rejected {
+  background-color: #fee2e2;
+  color: #991b1b;
+}

@@ -1,0 +1,134 @@
+.jobs-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* HEADER */
+.jobs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jobs-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.jobs-filter {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--recruiter-border-soft);
+  background: white;
+  cursor: pointer;
+}
+
+/* TABLE */
+.jobs-table-wrapper {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid var(--recruiter-border-soft);
+  overflow: hidden;
+}
+
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.jobs-table thead {
+  background: var(--recruiter-light-bg);
+}
+
+.jobs-table th,
+.jobs-table td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.jobs-table tbody tr {
+  border-top: 1px solid #f1f5f9;
+}
+
+.jobs-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* TITLE LINK */
+.job-title-link {
+  font-weight: 600;
+  color: var(--recruiter-primary);
+  text-decoration: none;
+}
+
+.job-title-link:hover {
+  text-decoration: underline;
+}
+
+/* ACTION BUTTONS */
+.job-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-btn {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.edit-btn {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.status-btn {
+  background: var(--recruiter-light-bg);
+  color: var(--recruiter-primary);
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* PAGINATION */
+.jobs-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.jobs-pagination button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--recruiter-border-soft);
+  background: white;
+  cursor: pointer;
+}
+
+.jobs-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* EMPTY + LOADING */
+.jobs-empty,
+.jobs-loading {
+  padding: 30px;
+  text-align: center;
+  color: var(--recruiter-text-muted);
+}

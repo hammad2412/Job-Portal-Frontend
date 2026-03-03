@@ -1,54 +1,91 @@
+/* ===============================
+   DASHBOARD OVERVIEW
+================================= */
+
 .dashboard-overview {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 32px;
 }
+
+/* ===============================
+   HEADER
+================================= */
+
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dashboard-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--recruiter-text-dark);
+}
+
+.dashboard-subtitle {
+  font-size: 14px;
+  color: var(--recruiter-text-muted);
+}
+
+.dashboard-loading,
+.dashboard-error {
+  padding: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--recruiter-primary);
+}
+
+/* ===============================
+   STATS GRID
+================================= */
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
+/* ===============================
+   STAT CARD
+================================= */
+
 .stat-card {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid var(--recruiter-border-soft);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
 }
 
-.stat-card h4 {
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.stat-title {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--recruiter-text-muted);
+  margin-bottom: 8px;
 }
 
-.stat-card p {
-  font-size: 24px;
-  font-weight: 600;
-  margin-top: 8px;
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--recruiter-primary);
+  margin: 0;
 }
 
-.recent-jobs {
+/* ===============================
+   SECTION WRAPPER
+================================= */
+
+.dashboard-section {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.recent-job-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.recent-job-item:last-child {
-  border-bottom: none;
-}
-
-.recent-job-item span {
-  display: block;
-  font-size: 13px;
-  color: #6b7280;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid var(--recruiter-border-soft);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }

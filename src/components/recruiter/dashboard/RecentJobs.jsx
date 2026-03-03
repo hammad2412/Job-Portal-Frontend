@@ -1,29 +1,41 @@
 import { Link } from "react-router-dom";
 import StatusBadge from "../shared/StatusBadge";
+import "../../../styles/recruiter/recentJobs.css";
 
 const RecentJobs = ({ jobs }) => {
   return (
     <div className="recent-jobs">
-      <h3>Recent Jobs</h3>
+      <div className="recent-jobs-header">
+        <h3 className="recent-jobs-title">Recent Jobs</h3>
+      </div>
 
       {jobs.length === 0 ? (
-        <p>No jobs available.</p>
+        <div className="recent-jobs-empty">
+          <p>No jobs posted yet.</p>
+          <span>Start by creating your first job posting.</span>
+        </div>
       ) : (
-        <ul>
+        <div className="recent-jobs-list">
           {jobs.map((job) => (
-            <li key={job._id} className="recent-job-item">
-              <div>
-                <strong>{job.title}</strong>
-                <span>{job.location}</span>
+            <div key={job._id} className="recent-job-card">
+              <div className="recent-job-info">
+                <h4 className="recent-job-title">{job.title}</h4>
+                <p className="recent-job-location">{job.location}</p>
               </div>
 
-              <div>
+              <div className="recent-job-actions">
                 <StatusBadge status={job.status} />
-                <Link to={`/recruiter/jobs/${job._id}`}>View</Link>
+
+                <Link
+                  to={`/recruiter/jobs/${job._id}`}
+                  className="recent-job-view-btn"
+                >
+                  View
+                </Link>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

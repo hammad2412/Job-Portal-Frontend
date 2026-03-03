@@ -1,11 +1,35 @@
-const ConfirmModal = ({ message, onConfirm, onCancel }) => {
+import "../../../styles/recruiter/confirmModal.css";
+
+const ConfirmModal = ({
+  message,
+  onConfirm,
+  onCancel,
+  confirmText = "Confirm",
+  cancelText = "Cancel",
+  variant = "primary", // primary | danger
+}) => {
   return (
     <div className="modal-overlay">
       <div className="modal-box">
-        <p>{message}</p>
+        <h3 className="modal-title">Confirm Action</h3>
+
+        <p className="modal-message">{message}</p>
+
         <div className="modal-actions">
-          <button onClick={onConfirm}>Yes</button>
-          <button onClick={onCancel}>Cancel</button>
+          <button className="modal-btn cancel-btn" onClick={onCancel}>
+            {cancelText}
+          </button>
+
+          <button
+            className={`modal-btn ${
+              variant === "danger"
+                ? "confirm-danger-btn"
+                : "confirm-primary-btn"
+            }`}
+            onClick={onConfirm}
+          >
+            {confirmText}
+          </button>
         </div>
       </div>
     </div>

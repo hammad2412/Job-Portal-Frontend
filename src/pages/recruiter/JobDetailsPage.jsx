@@ -19,7 +19,7 @@ const JobDetailsPage = () => {
 
   useEffect(() => {
     fetchApplications();
-  }, [page, status]);
+  }, [jobId, page, status]);
 
   const fetchApplications = async () => {
     setLoading(true);
@@ -77,7 +77,12 @@ const JobDetailsPage = () => {
       {/* Pagination */}
       <div style={{ marginTop: "20px" }}>
         {pagination.prev && (
-          <button onClick={() => setPage(page - 1)}>Prev</button>
+          <button
+            disabled={!pagination.prev}
+            onClick={() => setPage((prev) => prev - 1)}
+          >
+            Prev
+          </button>
         )}
 
         <span style={{ margin: "0 10px" }}>Page {page}</span>

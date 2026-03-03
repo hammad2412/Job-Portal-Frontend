@@ -1,0 +1,233 @@
+/* ==============================
+   PAGE LAYOUT
+============================== */
+
+.company-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+.company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--recruiter-text-dark);
+}
+
+/* Edit Button */
+
+.edit-company-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  background: var(--recruiter-primary);
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.edit-company-btn:hover {
+  background: var(--recruiter-primary-hover);
+}
+
+/* ==============================
+   VIEW MODE CARD
+============================== */
+
+.company-view-card {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid var(--recruiter-border-soft);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.company-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.company-detail-item .label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--recruiter-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.company-detail-item span:last-child {
+  font-size: 16px;
+  color: var(--recruiter-text-dark);
+  line-height: 1.5;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+/* ==============================
+   FORM CONTAINER
+============================== */
+
+.company-form {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--recruiter-border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ==============================
+   GRID
+============================== */
+
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ==============================
+   FORM GROUP
+============================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--recruiter-text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  font-size: 14px;
+  background: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  background: white;
+  border-color: var(--recruiter-primary);
+  box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* ==============================
+   ERROR MESSAGE
+============================== */
+
+.company-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+/* ==============================
+   ACTION BUTTONS
+============================== */
+
+.company-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.company-actions button {
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Cancel Button */
+
+.company-actions .cancel-btn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.company-actions .cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+/* Primary Save Button */
+
+.company-actions button:not(.cancel-btn) {
+  background: var(--recruiter-primary);
+  color: white;
+}
+
+.company-actions button:not(.cancel-btn):hover {
+  background: var(--recruiter-primary-hover);
+}
+
+.company-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 768px) {
+  .company-grid,
+  .company-view-card {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+
+  .company-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .company-actions {
+    justify-content: stretch;
+  }
+
+  .company-actions button {
+    width: 100%;
+  }
+}

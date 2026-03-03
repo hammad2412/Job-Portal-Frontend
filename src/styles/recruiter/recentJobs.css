@@ -1,0 +1,129 @@
+/* ===============================
+   CONTAINER
+================================= */
+
+.recent-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===============================
+   HEADER
+================================= */
+
+.recent-jobs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recent-jobs-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--recruiter-text-dark);
+  margin: 0;
+}
+
+/* ===============================
+   EMPTY STATE
+================================= */
+
+.recent-jobs-empty {
+  padding: 30px;
+  background: var(--recruiter-light-bg);
+  border-radius: 12px;
+  text-align: center;
+  border: 1px dashed var(--recruiter-border-soft);
+}
+
+.recent-jobs-empty p {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--recruiter-primary);
+}
+
+.recent-jobs-empty span {
+  font-size: 14px;
+  color: var(--recruiter-text-muted);
+}
+
+/* ===============================
+   LIST
+================================= */
+
+.recent-jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===============================
+   JOB CARD
+================================= */
+
+.recent-job-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--recruiter-border-soft);
+  transition: all 0.2s ease;
+}
+
+.recent-job-card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   LEFT INFO
+================================= */
+
+.recent-job-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recent-job-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--recruiter-text-dark);
+}
+
+.recent-job-location {
+  font-size: 13px;
+  color: var(--recruiter-text-muted);
+  margin: 0;
+}
+
+/* ===============================
+   ACTIONS
+================================= */
+
+.recent-job-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* View Button */
+
+.recent-job-view-btn {
+  padding: 8px 14px;
+  background-color: var(--recruiter-primary);
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.recent-job-view-btn:hover {
+  background-color: var(--recruiter-primary-hover);
+}

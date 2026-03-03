@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createJob } from "../../services/recruiterJob.service";
+import "../../styles/recruiter/postJobPage.css";
 
 const PostJobPage = () => {
   const navigate = useNavigate();
@@ -42,12 +43,9 @@ const PostJobPage = () => {
           .map((skill) => skill.trim()),
       };
 
-      const response = await createJob(payload);
-      console.log("Create Job Response:", response);
-
+      await createJob(payload);
       navigate("/recruiter/jobs");
     } catch (err) {
-      console.error("Create Job Error:", err);
       setError(err.response?.data?.message || "Failed to create job");
     } finally {
       setLoading(false);
@@ -55,88 +53,119 @@ const PostJobPage = () => {
   };
 
   return (
-    <div>
-      <h2>Post New Job</h2>
+    <div className="post-job-page">
+      <div className="post-job-header">
+        <h2>Post New Job</h2>
+        <p>Create a new job listing to attract candidates.</p>
+      </div>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <form className="post-job-form" onSubmit={handleSubmit}>
+        {error && <div className="form-error">{error}</div>}
 
-      <form onSubmit={handleSubmit}>
-        <input
-          name="title"
-          placeholder="Job Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
+        <div className="form-grid">
+          <div className="form-group full-width">
+            <label>Job Title</label>
+            <input
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <textarea
-          name="description"
-          placeholder="Job Description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-group full-width">
+            <label>Job Description</label>
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <textarea
-          name="requirements"
-          placeholder="Requirements"
-          value={formData.requirements}
-          onChange={handleChange}
-        />
+          <div className="form-group full-width">
+            <label>Requirements</label>
+            <textarea
+              name="requirements"
+              value={formData.requirements}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="skillsRequired"
-          placeholder="Skills (comma separated)"
-          value={formData.skillsRequired}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-group">
+            <label>Skills (comma separated)</label>
+            <input
+              name="skillsRequired"
+              value={formData.skillsRequired}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <select
-          name="experienceLevel"
-          value={formData.experienceLevel}
-          onChange={handleChange}
-        >
-          <option value="fresher">Fresher</option>
-          <option value="mid">Mid</option>
-          <option value="senior">Senior</option>
-        </select>
+          <div className="form-group">
+            <label>Experience Level</label>
+            <select
+              name="experienceLevel"
+              value={formData.experienceLevel}
+              onChange={handleChange}
+            >
+              <option value="fresher">Fresher</option>
+              <option value="mid">Mid</option>
+              <option value="senior">Senior</option>
+            </select>
+          </div>
 
-        <select name="jobType" value={formData.jobType} onChange={handleChange}>
-          <option value="full-time">Full Time</option>
-          <option value="part-time">Part Time</option>
-          <option value="internship">Internship</option>
-          <option value="contract">Contract</option>
-        </select>
+          <div className="form-group">
+            <label>Job Type</label>
+            <select
+              name="jobType"
+              value={formData.jobType}
+              onChange={handleChange}
+            >
+              <option value="full-time">Full Time</option>
+              <option value="part-time">Part Time</option>
+              <option value="internship">Internship</option>
+              <option value="contract">Contract</option>
+            </select>
+          </div>
 
-        <input
-          name="salaryRange"
-          placeholder="Salary Range"
-          value={formData.salaryRange}
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Salary Range</label>
+            <input
+              name="salaryRange"
+              value={formData.salaryRange}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="location"
-          placeholder="Location"
-          value={formData.location}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-group">
+            <label>Location</label>
+            <input
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <label>
-          <input
-            type="checkbox"
-            name="isRemote"
-            checked={formData.isRemote}
-            onChange={handleChange}
-          />
-          Remote Job
-        </label>
+          <div className="form-group checkbox-group full-width">
+            <label>
+              <input
+                type="checkbox"
+                name="isRemote"
+                checked={formData.isRemote}
+                onChange={handleChange}
+              />
+              Remote Job
+            </label>
+          </div>
+        </div>
 
-        <button type="submit" disabled={loading}>
-          {loading ? "Posting..." : "Post Job"}
-        </button>
+        <div className="form-actions">
+          <button type="submit" disabled={loading}>
+            {loading ? "Posting..." : "Post Job"}
+          </button>
+        </div>
       </form>
     </div>
   );
