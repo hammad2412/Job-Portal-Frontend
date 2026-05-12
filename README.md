@@ -78,7 +78,7 @@ Talentium is a production-grade MERN Stack Job Portal that connects **Candidates
 ## 🏠 Landing Page
 
 <p align="center">
-  <img src="" alt="Landing Page" width="100%" />
+  <img src="./src/assets/SS/HeroSection.png" alt="Landing Page" width="100%" />
 </p>
 <p align="center">
   <img src="./src/assets/SS/Path.png" alt="Landing Page" width="100%" />
