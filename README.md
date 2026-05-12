@@ -78,37 +78,37 @@ Talentium is a production-grade MERN Stack Job Portal that connects **Candidates
 ## 🏠 Landing Page
 
 <p align="center">
-  <img src="assets/ss/HeroSection.png" alt="Landing Page" width="100%" />
+  <img src="" alt="Landing Page" width="100%" />
 </p>
 <p align="center">
-  <img src="assets/ss/Path.png" alt="Landing Page" width="100%" />
+  <img src="./src/assets/SS/Path.png" alt="Landing Page" width="100%" />
 </p>
 <p align="center">
-  <img src="assets/ss/How.png" alt="Landing Page" width="100%" />
+  <img src="./src/assets/SS/How.png" alt="Landing Page" width="100%" />
 </p>
 
 ## 🔐 Login & Register
 
 <p align="center">
-  <img src="assets/ss/RecruiterLogin.png" alt="Recruiter Login" width="48%" />
-  <img src="assets/ss/CandidateLogin.png" alt="Candidate Login" width="48%" />
+  <img src="./src/assets/SS/RecruiterLogin.png" alt="Recruiter Login" width="48%" />
+  <img src="./src/assets/SS/CandidateLogin.png" alt="Candidate Login" width="48%" />
 </p>
 
 ## 👤 Candidate Dashboard
 
 <p align="center">
-  <img src="assets/ss/CandidateDashboard.png" alt="Candidate Dashboard" width="100%" />
-  <img src="assets/ss/CandidateProfile.png" alt="Candidate Profile" width="100%" />
-  <img src="assets/ss/JobsList.png" alt="Jobs List" width="100%" />
+  <img src="./src/assets/SS/CandidateDashboard.png" alt="Candidate Dashboard" width="100%" />
+  <img src="./src/assets/SS/CandidateProfile.png" alt="Candidate Profile" width="100%" />
+  <img src="./src/assets/SS/JobsList.png" alt="Jobs List" width="100%" />
 </p>
 
 ## 🏢 Recruiter Dashboard
 
 <p align="center">
-  <img src="assets/ss/RecruiterDashboard.png" alt="Recruiter Dashboard" width="100%" />
-  <img src="assets/ss/PostJob.png" alt="Post Job" width="100%" />
-  <img src="assets/ss/JobManagement.png" alt="Job Management" width="100%" />
-  <img src="assets/ss/CompanyProfile.png" alt="Company Profile" width="100%" />
+  <img src="./src/assets/SS/RecruiterDashboard.png" alt="Recruiter Dashboard" width="100%" />
+  <img src="./src/assets/SS/PostJob.png" alt="Post Job" width="100%" />
+  <img src="./src/assets/SS/JobManagement.png" alt="Job Management" width="100%" />
+  <img src="./src/assets/SS/CompanyProfile.png" alt="Company Profile" width="100%" />
 </p>
 
 ---
@@ -131,4 +131,3 @@ Talentium is a production-grade MERN Stack Job Portal that connects **Candidates
 <div align="center">
   <strong>⭐ If you like this project, consider giving it a star on GitHub! ⭐</strong>
 </div>
-```
