@@ -40,11 +40,11 @@ const CandidateNavbar = () => {
 
       {/* ===== Right Profile ===== */}
       <div className="navbar-right">
-        <div className="profile-wrapper" onClick={() => setOpen(!open)}>
-          <div className="profile-avatar">C</div>
+        <div className="navbar-profile-wrapper" onClick={() => setOpen(!open)}>
+          <div className="navbar-profile-avatar">C</div>
 
           {open && (
-            <div className="profile-dropdown">
+            <div className="navbar-profile-dropdown">
               <NavLink to="/candidate/profile">Profile</NavLink>
 
               <button className="logout-btn" onClick={logout}>

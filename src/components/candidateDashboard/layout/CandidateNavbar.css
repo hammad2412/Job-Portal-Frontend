@@ -61,12 +61,12 @@
 
 /* ===== Right ===== */
 
-.profile-wrapper {
+.navbar-profile-wrapper {
   position: relative;
   cursor: pointer;
 }
 
-.profile-avatar {
+.navbar-profile-avatar {
   width: 40px;
   height: 40px;
   background: #2563eb;
@@ -80,7 +80,7 @@
 
 /* ===== Dropdown ===== */
 
-.profile-dropdown {
+.navbar-profile-dropdown {
   position: absolute;
   right: 0;
   top: 55px;
@@ -98,8 +98,8 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.profile-dropdown a,
-.profile-dropdown button {
+.navbar-profile-dropdown a,
+.navbar-profile-dropdown button {
   padding: 10px 20px;
   text-align: left;
   background: none;
@@ -109,8 +109,8 @@
   cursor: pointer;
 }
 
-.profile-dropdown a:hover,
-.profile-dropdown button:hover {
+.navbar-profile-dropdown a:hover,
+.navbar-profile-dropdown button:hover {
   background: #f1f5f9;
 }
 

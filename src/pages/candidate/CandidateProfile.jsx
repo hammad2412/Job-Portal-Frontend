@@ -1,117 +1,83 @@
 import { useEffect, useState } from "react";
+import axios from "../../api/axios";
 import "./CandidateProfile.css";
 
-const CandidateProfile = () => {
-  const [profile, setProfile] = useState(null);
+import ProfileHeader from "../../components/candidateDashboard/candidateProfile/ProfileHeader";
+import SkillsSection from "../../components/candidateDashboard/candidateProfile/SkillsSection";
+import EducationSection from "../../components/candidateDashboard/candidateProfile/EducationSection";
+import ExperienceSection from "../../components/candidateDashboard/candidateProfile/ExperienceSection";
+import ProjectsSection from "../../components/candidateDashboard/candidateProfile/ProjectsSection";
+import PreferenceSection from "../../components/candidateDashboard/candidateProfile/PreferenceSection";
 
-  // 🔥 Temporary dummy data (replace with API later)
+const CandidateProfile = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const fetchProfile = async () => {
+    try {
+      const res = await axios.get("/candidate-profile/full-profile");
+      setData({ ...res.data.data });
+    } catch (error) {
+      console.error("Profile fetch error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    setProfile({
-      name: "Mohammad Hammad Khan",
-      email: "hammadk1224@gmail.com",
-      location: "Jaipur",
-      headline: "Full Stack Developer",
-      summary:
-        "Passionate MERN stack developer with strong backend architecture knowledge and scalable API design experience.",
-      experienceYears: 1,
-      skills: ["React", "Node.js", "MongoDB", "Express", "JWT"],
-      education: [
-        {
-          degree: "B.Tech (Full Time)",
-          institution: "Arya College of Engineering, Jaipur",
-          startYear: 2021,
-          endYear: 2025,
-        },
-      ],
-      experience: [],
-      projects: [],
-    });
+    fetchProfile();
   }, []);
 
-  if (!profile) return <div>Loading profile...</div>;
+  if (loading) {
+    return <div className="profile-loading">Loading profile...</div>;
+  }
+
+  const userName = data?.profile?.userId?.name || data?.user?.name;
+  const userEmail = data?.profile?.userId?.email || data?.user?.email;
+
+  if (!data?.profile) {
+    return (
+      <div className="candidate-profile-page">
+        <ProfileHeader
+          profile={null}
+          userName={userName}
+          userEmail={userEmail}
+          showCreateButton
+          refreshProfile={fetchProfile}
+        />
+        <div className="profile-main">
+          <p className="empty-profile-message">
+            Create your profile to start adding skills, education, experience
+            and projects.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const { profile, skills, education, experience, projects, preferences } =
+    data;
 
   return (
     <div className="candidate-profile-page">
-      {/* LEFT SIDEBAR */}
-      <div className="profile-sidebar">
-        <div className="profile-card">
-          <div className="profile-avatar"></div>
+      <ProfileHeader profile={profile} refreshProfile={fetchProfile} />
 
-          <h2>{profile.name}</h2>
-          <p className="profile-email">{profile.email}</p>
-
-          <p className="profile-location">📍 {profile.location}</p>
-
-          <button className="edit-profile-btn">Edit Profile</button>
-        </div>
-      </div>
-
-      {/* RIGHT CONTENT */}
       <div className="profile-main">
-        {/* PROFESSIONAL DETAILS */}
-        <div className="profile-section">
-          <div className="section-header">
-            <h3>Professional Details</h3>
-            <button className="section-edit-btn">✏</button>
-          </div>
+        <SkillsSection skills={skills} refreshProfile={fetchProfile} />
 
-          <h4>{profile.headline}</h4>
-          <p className="profile-summary">{profile.summary}</p>
+        <EducationSection education={education} refreshProfile={fetchProfile} />
 
-          <div className="skills-container">
-            {profile.skills.map((skill, index) => (
-              <span key={index} className="skill-tag">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
+        <ExperienceSection
+          experience={experience}
+          refreshProfile={fetchProfile}
+        />
 
-        {/* EDUCATION */}
-        <div className="profile-section">
-          <div className="section-header">
-            <h3>Education</h3>
-            <button className="section-edit-btn">✏</button>
-          </div>
+        <ProjectsSection projects={projects} refreshProfile={fetchProfile} />
 
-          {profile.education.map((edu, index) => (
-            <div key={index} className="education-item">
-              <h4>{edu.degree}</h4>
-              <p>{edu.institution}</p>
-              <span>
-                {edu.startYear} - {edu.endYear}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* EXPERIENCE */}
-        <div className="profile-section">
-          <div className="section-header">
-            <h3>Experience</h3>
-            <button className="section-edit-btn">✏</button>
-          </div>
-
-          {profile.experience.length === 0 ? (
-            <p className="empty-text">No experience added yet.</p>
-          ) : (
-            profile.experience.map((exp, index) => <div key={index}></div>)
-          )}
-        </div>
-
-        {/* PROJECTS */}
-        <div className="profile-section">
-          <div className="section-header">
-            <h3>Projects</h3>
-            <button className="section-edit-btn">✏</button>
-          </div>
-
-          {profile.projects.length === 0 ? (
-            <p className="empty-text">No projects added yet.</p>
-          ) : (
-            profile.projects.map((proj, index) => <div key={index}></div>)
-          )}
-        </div>
+        <PreferenceSection
+          preferences={preferences}
+          refreshProfile={fetchProfile}
+        />
       </div>
     </div>
   );

@@ -34,11 +34,9 @@ const AppRoutes = () => {
     <Routes>
       {/* Public Routes */}
       <Route path="/" element={<Home />} />
-
       {/* Auth Routes */}
       <Route path="/auth/candidate" element={<AuthCandidate />} />
       <Route path="/auth/recruiter" element={<AuthRecruiter />} />
-
       {/* ================= CANDIDATE ROUTES ================= */}
       <Route
         path="/candidate"
@@ -58,7 +56,6 @@ const AppRoutes = () => {
         <Route path="saved" element={<SavedJobs />} />
         <Route path="profile" element={<CandidateProfile />} />
       </Route>
-
       {/* ================= RECRUITER ROUTES ================= */}
       <Route
         path="/recruiter"
@@ -81,7 +78,6 @@ const AppRoutes = () => {
         <Route path="company-profile" element={<CompanyProfilePage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
-
       {/* Admin Routes */}
       <Route
         path="/admin/dashboard"

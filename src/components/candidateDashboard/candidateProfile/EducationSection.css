@@ -1,0 +1,94 @@
+.education-item {
+  margin-bottom: 12px;
+}
+
+.edu-institution {
+  font-weight: 500;
+}
+
+.edu-date {
+  font-size: 13px;
+  color: var(--candidate-text-muted);
+}
+
+/* LIST */
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* CARD */
+
+.education-edit-card {
+  border: 1px solid var(--candidate-border-soft);
+  padding: 12px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* INPUTS */
+
+.education-edit-card input,
+.education-edit-card select {
+  padding: 7px;
+  border: 1px solid var(--candidate-border-soft);
+  border-radius: 6px;
+}
+
+/* DATE ROW */
+
+.date-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* CHECKBOX */
+
+.studying-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* BUTTONS */
+
+.delete-education-btn {
+  background: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px;
+  border-radius: 6px;
+  width: 90px;
+  cursor: pointer;
+}
+
+.delete-education-btn:hover {
+  background: #dc2626;
+}
+
+.add-education-btn {
+  margin-top: 12px;
+  background: var(--candidate-primary);
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-education-btn:hover {
+  background: var(--candidate-primary-hover);
+}
+
+/* ERROR */
+
+.form-error {
+  color: #ef4444;
+  font-size: 13px;
+}

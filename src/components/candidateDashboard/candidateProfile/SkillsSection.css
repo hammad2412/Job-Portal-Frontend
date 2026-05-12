@@ -1,0 +1,98 @@
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  background: var(--candidate-soft-bg);
+  color: var(--candidate-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* HEADER ACTION */
+
+.skills-modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* FORM LIST */
+
+.skills-edit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ROW */
+
+.skill-edit-row {
+  display: grid;
+  grid-template-columns: 1fr 150px 120px 100px;
+  gap: 10px;
+}
+
+.skill-edit-row input,
+.skill-edit-row select {
+  padding: 7px;
+  border: 1px solid var(--candidate-border-soft);
+  border-radius: 6px;
+}
+
+/* BUTTONS */
+
+.delete-skill-btn {
+  background: #ef4444;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-skill-btn:hover {
+  background: #dc2626;
+}
+
+.add-skill-btn {
+  margin-top: 12px;
+  background: var(--candidate-primary);
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-skill-btn:hover {
+  background: var(--candidate-primary-hover);
+}
+
+.clear-all-btn {
+  border: none;
+  background: none;
+  color: var(--candidate-primary);
+  cursor: pointer;
+}
+
+.clear-all-btn:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+  gap: 10px;
+}
+
+/* ERROR */
+
+.form-error {
+  color: #ef4444;
+  font-size: 13px;
+}

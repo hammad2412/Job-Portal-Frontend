@@ -1,0 +1,91 @@
+.experience-item {
+  border-bottom: 1px solid var(--candidate-border-soft);
+  padding: 14px 0;
+}
+
+.exp-company {
+  font-weight: 500;
+}
+
+.exp-date {
+  font-size: 13px;
+  color: var(--candidate-text-muted);
+}
+
+.exp-location {
+  font-size: 13px;
+}
+
+/* LIST */
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* CARD */
+
+.experience-card {
+  border: 1px solid var(--candidate-border-soft);
+  padding: 12px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* INPUTS */
+
+.experience-card input,
+.experience-card select,
+.experience-card textarea {
+  padding: 7px;
+  border: 1px solid var(--candidate-border-soft);
+  border-radius: 6px;
+}
+
+/* DATE ROW */
+
+.date-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* BUTTONS */
+
+.delete-exp-btn {
+  background: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px;
+  border-radius: 6px;
+  width: 90px;
+  cursor: pointer;
+}
+
+.delete-exp-btn:hover {
+  background: #dc2626;
+}
+
+.add-exp-btn {
+  margin-top: 12px;
+  background: var(--candidate-primary);
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-exp-btn:hover {
+  background: var(--candidate-primary-hover);
+}
+
+/* ERROR */
+
+.form-error {
+  color: #ef4444;
+  font-size: 13px;
+}

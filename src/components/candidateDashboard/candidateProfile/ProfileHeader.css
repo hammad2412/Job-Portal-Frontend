@@ -1,0 +1,140 @@
+.profile-sidebar {
+  width: 280px;
+}
+
+.profile-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid var(--candidate-border-soft);
+}
+
+/* avatar progress */
+
+.avatar-progress-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 12px auto;
+}
+
+.profile-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--candidate-primary);
+  color: white;
+  font-size: 26px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* text */
+
+.profile-email {
+  font-size: 13px;
+  color: var(--candidate-text-muted);
+}
+
+.profile-headline {
+  font-size: 14px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.profile-about {
+  font-size: 13px;
+  color: var(--candidate-text-muted);
+  margin-top: 4px;
+}
+
+/* buttons */
+
+.add-btn,
+.edit-profile-btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
+  background: var(--candidate-primary);
+  color: white;
+}
+
+.add-btn:hover,
+.edit-profile-btn:hover {
+  background: var(--candidate-primary-hover);
+}
+
+/* modal content */
+
+.profile-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-modal input,
+.profile-modal textarea {
+  border: 1px solid var(--candidate-border-soft);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.profile-modal textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-error {
+  color: #ef4444;
+  font-size: 13px;
+}
+
+/* Resume Upload Section */
+.resume-upload-box {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  text-align: left;
+}
+
+.resume-upload-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.resume-upload-input {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.resume-upload-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.resume-upload-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #64748b;
+}

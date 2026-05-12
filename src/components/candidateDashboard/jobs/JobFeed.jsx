@@ -12,7 +12,7 @@ const JobFeed = () => {
   const [location, setLocation] = useState("");
   const [jobType, setJobType] = useState("");
 
-  const limit = 5;
+  const limit = 8;
 
   useEffect(() => {
     fetchJobs();

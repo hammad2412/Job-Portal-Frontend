@@ -1,0 +1,45 @@
+.preference-content p {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.preference-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preference-modal input,
+.preference-modal select {
+  border: 1px solid var(--candidate-border-soft);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.preference-clear {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clear-all-btn {
+  border: none;
+  background: none;
+  color: var(--candidate-primary);
+  cursor: pointer;
+}
+
+.clear-all-btn:hover {
+  text-decoration: underline;
+}
+
+.relocate-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.form-error {
+  color: #ef4444;
+  font-size: 13px;
+}

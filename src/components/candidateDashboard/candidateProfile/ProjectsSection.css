@@ -1,0 +1,103 @@
+.project-item {
+  border-bottom: 1px solid var(--candidate-border-soft);
+  padding: 14px 0;
+}
+
+.project-role {
+  font-weight: 500;
+  color: var(--candidate-text-muted);
+}
+
+.project-date {
+  font-size: 14px;
+  color: var(--candidate-text-muted);
+}
+
+.project-desc {
+  margin: 8px 0;
+}
+
+.project-tech {
+  font-size: 14px;
+}
+
+.project-links a {
+  margin-right: 12px;
+  color: var(--candidate-primary);
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+/* LIST */
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* CARD */
+
+.project-card {
+  border: 1px solid var(--candidate-border-soft);
+  padding: 15px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-card input,
+.project-card textarea,
+.project-card select {
+  padding: 8px;
+  border: 1px solid var(--candidate-border-soft);
+  border-radius: 6px;
+}
+
+.project-card textarea {
+  resize: none;
+  height: 80px;
+}
+
+.date-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.add-project-btn {
+  margin-top: 10px;
+  background: var(--candidate-primary);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-project-btn:hover {
+  background: var(--candidate-primary-hover);
+}
+
+.delete-project-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-project-btn:hover {
+  background: #dc2626;
+}
+
+.form-error {
+  color: #ef4444;
+  font-size: 13px;
+}
